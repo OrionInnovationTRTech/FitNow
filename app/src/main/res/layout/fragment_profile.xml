@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.BottomMenuFragments.ProfileFragment">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_marginTop="32dp"
+        android:id="@+id/profilesc_picture"
+        android:layout_width="250dp"
+        android:layout_height="200dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/nophoto_user"
+        app:civ_border_width="3dp"
+        app:civ_border_color="#FF000000"
+        />
+
+
+    <TextView
+        android:id="@+id/profilesc_nameb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:textSize="18sp"
+        android:text="@string/register_isimsoyisim"
+        app:layout_constraintEnd_toEndOf="@+id/profilesc_picture"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profilesc_picture" />
+
+    <TextView
+        android:id="@+id/profilesc_heightTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textSize="18sp"
+        android:text="@string/boyTextView"
+        app:layout_constraintEnd_toEndOf="@+id/profilesc_ageTextView"
+        app:layout_constraintTop_toBottomOf="@+id/profilesc_ageTextView" />
+
+    <TextView
+        android:id="@+id/profilesc_ageTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textSize="18sp"
+        android:text="@string/yasTextView"
+        app:layout_constraintEnd_toEndOf="@+id/profilesc_nameb"
+        app:layout_constraintTop_toBottomOf="@+id/profilesc_nameb" />
+
+    <TextView
+        android:id="@+id/profilesc_weightTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:layout_marginTop="8dp"
+        android:text="@string/kiloTextView"
+        app:layout_constraintEnd_toEndOf="@+id/profilesc_heightTextView"
+        app:layout_constraintTop_toBottomOf="@+id/profilesc_heightTextView" />
+
+    <TextView
+        android:id="@+id/profilesc_name"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="2dp"
+        android:textAlignment="viewStart"
+        app:layout_constraintBottom_toBottomOf="@+id/profilesc_nameb"
+        app:layout_constraintStart_toEndOf="@+id/profilesc_nameb"
+        app:layout_constraintTop_toTopOf="@+id/profilesc_nameb" />
+
+    <TextView
+        android:id="@+id/profilesc_age"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="2dp"
+        android:textAlignment="viewStart"
+        app:layout_constraintBottom_toBottomOf="@+id/profilesc_ageTextView"
+        app:layout_constraintStart_toEndOf="@+id/profilesc_ageTextView"
+        app:layout_constraintTop_toTopOf="@+id/profilesc_ageTextView" />
+
+    <TextView
+        android:id="@+id/profilesc_height"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:textAlignment="viewStart"
+        app:layout_constraintBottom_toBottomOf="@+id/profilesc_heightTextView"
+        app:layout_constraintStart_toEndOf="@+id/profilesc_heightTextView"
+        app:layout_constraintTop_toBottomOf="@+id/profilesc_ageTextView" />
+
+    <TextView
+        android:id="@+id/profilesc_weight"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:textAlignment="viewStart"
+        app:layout_constraintBottom_toBottomOf="@+id/profilesc_weightTextView"
+        app:layout_constraintStart_toEndOf="@+id/profilesc_weightTextView"
+        app:layout_constraintTop_toBottomOf="@+id/profilesc_heightTextView" />
+
+    <TextView
+        android:id="@+id/profilesc_info"
+        android:layout_width="340dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/updateAccTextView"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/profilesc_ageTextView" />
+
+    <TextView
+        android:id="@+id/jobtvinfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textSize="18sp"
+        android:text="@string/job"
+        app:layout_constraintEnd_toEndOf="@+id/profilesc_weightTextView"
+        app:layout_constraintTop_toBottomOf="@+id/profilesc_weightTextView" />
+
+    <TextView
+        android:id="@+id/jobTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="@+id/jobtvinfo"
+        app:layout_constraintStart_toEndOf="@+id/jobtvinfo"
+        app:layout_constraintTop_toBottomOf="@+id/profilesc_weightTextView" />
+
+    <TextView
+        android:id="@+id/exerciseStatusTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textSize="18sp"
+        android:text="@string/exerciseStatus"
+        app:layout_constraintEnd_toEndOf="@+id/jobtvinfo"
+        app:layout_constraintTop_toBottomOf="@+id/jobtvinfo" />
+
+    <TextView
+        android:id="@+id/exerciseTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/exerciseStatusTv"
+        app:layout_constraintStart_toEndOf="@+id/exerciseStatusTv"
+        app:layout_constraintTop_toBottomOf="@+id/jobtvinfo" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

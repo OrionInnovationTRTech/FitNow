@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:context=".ui.user.updateAccountFragment">
+
+
+            <TextView
+                android:id="@+id/emailText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:text="@string/email"
+                app:layout_constraintBottom_toBottomOf="@id/emailEditText"
+                app:layout_constraintRight_toLeftOf="@id/emailEditText"
+                app:layout_constraintTop_toTopOf="@id/emailEditText" />
+
+            <EditText
+                android:id="@+id/emailEditText"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="56dp"
+                android:hint="@string/email"
+                android:inputType="textEmailAddress"
+                app:layout_constraintHorizontal_bias="0.72"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/sifreText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:text="@string/sifre"
+                app:layout_constraintBottom_toBottomOf="@id/passEditText"
+                app:layout_constraintRight_toLeftOf="@id/passEditText"
+                app:layout_constraintTop_toTopOf="@id/passEditText" />
+
+            <EditText
+                android:id="@+id/passEditText"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:hint="@string/enterPass"
+                android:inputType="textPassword"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintLeft_toLeftOf="@id/emailEditText"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/emailEditText" />
+
+            <Button
+                android:id="@+id/changeMail"
+                android:layout_width="100dp"
+                android:layout_height="60dp"
+                android:text="@string/changeMail"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/changePass"
+                app:layout_constraintTop_toTopOf="@+id/changePass" />
+
+            <Button
+                android:id="@+id/changePass"
+                android:layout_width="100dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/changePass"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toStartOf="@+id/changeMail"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/passEditText" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/passChangeLayout"
+                android:layout_width="380dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.516"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/changeMail"
+                app:layout_constraintVertical_bias="0.486">
+
+                <TextView
+                    android:id="@+id/newPassText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:text="@string/newPassText"
+                    app:layout_constraintBottom_toBottomOf="@id/newPassEditText"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/newPassEditText" />
+
+                <EditText
+                    android:id="@+id/newPassEditText"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:visibility="visible"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintLeft_toRightOf="@id/newPassText"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Button
+                    android:id="@+id/newPassBTN"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginRight="32dp"
+                    android:text="@string/saveString"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    app:layout_constraintRight_toRightOf="@id/newPassEditText"
+                    app:layout_constraintTop_toBottomOf="@id/newPassEditText" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
+</LinearLayout>
+

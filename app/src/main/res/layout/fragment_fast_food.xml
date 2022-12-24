@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.BottomMenuFragments.FastFoodFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:id="@+id/menuConstraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
+
+        <ImageView
+            android:id="@+id/menuAppleImage"
+            android:layout_width="80dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/appintro1" />
+
+        <TextView
+            android:id="@+id/menuAppleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/apple"
+            app:layout_constraintEnd_toEndOf="@+id/menuAppleImage"
+            app:layout_constraintStart_toStartOf="@+id/menuAppleImage"
+            app:layout_constraintTop_toBottomOf="@+id/menuAppleImage" />
+        <ImageView
+            android:id="@+id/menuBananaImage"
+            android:layout_width="80dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintLeft_toRightOf="@id/menuAppleImage"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/appintro1" />
+
+        <TextView
+            android:id="@+id/menuBananaText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/banana"
+            app:layout_constraintEnd_toEndOf="@+id/menuBananaImage"
+            app:layout_constraintStart_toStartOf="@+id/menuBananaImage"
+            app:layout_constraintTop_toBottomOf="@+id/menuBananaImage" />
+
+        <ImageView
+            android:id="@+id/menuWatermelonImage"
+            android:layout_width="80dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintLeft_toRightOf="@id/menuBananaImage"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/appintro1" />
+
+        <TextView
+            android:id="@+id/menuWatermelonText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/watermelon"
+            app:layout_constraintEnd_toEndOf="@+id/menuWatermelonImage"
+            app:layout_constraintStart_toStartOf="@+id/menuWatermelonImage"
+            app:layout_constraintTop_toBottomOf="@+id/menuWatermelonImage" />
+        <ImageView
+            android:id="@+id/menuLemonImage"
+            android:layout_width="80dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintLeft_toRightOf="@id/menuWatermelonImage"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/appintro1" />
+
+        <TextView
+            android:id="@+id/menuLemonText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lemon"
+            app:layout_constraintEnd_toEndOf="@+id/menuLemonImage"
+            app:layout_constraintStart_toStartOf="@+id/menuLemonImage"
+            app:layout_constraintTop_toBottomOf="@+id/menuLemonImage" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/recyclerviewFoodConstraint"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/menuConstraintLayout">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerviewFood"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/recyclerviewFoodConstraint"
+            app:layout_constraintBottom_toBottomOf="@id/recyclerviewFoodConstraint"
+            tools:layout_editor_absoluteX="3dp" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+    <!---
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context=".BottomMenuFragments.FastFoodFragment">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerviewFood"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+
+                </androidx.recyclerview.widget.RecyclerView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+    </RelativeLayout>
+
+    -->
+

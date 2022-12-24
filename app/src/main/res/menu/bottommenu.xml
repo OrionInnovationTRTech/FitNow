@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/ic_fastfood"
+        android:icon="@drawable/ic_fastfood"
+        android:title="@string/menuFastFoodBTN"/>
+    <item android:id="@+id/ic_calorie"
+        android:icon="@drawable/ic_calorie"
+        android:title="@string/menuCalorieBTN"/>
+    <item android:id="@+id/ic_favorite"
+        android:icon="@drawable/ic_favorite"
+        android:title="@string/menuFavoriteBTN"/>
+    <item android:id="@+id/ic_account"
+        android:icon="@drawable/ic_account"
+        android:title="@string/menuAccountBTN"
+        />
+</menu>

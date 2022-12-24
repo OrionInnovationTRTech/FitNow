@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">FitNow</string>
+    <string name="logout">Çıkış yap</string>
+    <string name="hidden">************</string>
+
+    <!---    Onboarding Strings     -->
+    <string name="welcome_message">FitNow\'a hoşgeldiniz</string>
+    <string name="btn_getstarted">Başlayalım</string>
+    <string name="getstarted_firstfragtext">Vücudunuz bizimle daha güzel ve estetik duracak!</string>
+    <string name="sec_screen_description">Yediğiniz yemekleri kayıt altına alıyoruz. Ayrıca günlük aldığınız besin miktarını ve kalori hesabınızı sizin için otomatik gerçekleştiriyoruz.</string>
+    <string name="sec_screen_text_subject">Yediğiniz içtiğiniz bizde</string>
+    <string name="sec_screen_btnnext">Sonraki</string>
+    <string name="skip">Atla</string>
+    <string name="first_screen_description">Uygulama sayesinde besin değerlerinizi ve almanız gereken besinleri takip etmek zorunda kalmayacaksınız.</string>
+    <string name="third_screen_text_subject">Günlük analizinizin takibi artık çok kolay!</string>
+    <string name="third_screen_description">Kullanıcı paneli\'nde bulunan adımsayar ve kalori takibi gibi özellikler sayesinde kafanız çok rahat olacak.</string>
+    <string name="third_screen_btnnext">Başlayalım</string>
+    <string name="btn_first_screen">Sonraki</string>
+
+    <!---    Home activity Strings     -->
+    <string name="fitnowgiris">FitNow Giriş Ekranı</string>
+    <string name="sifre">Şifre</string>
+    <string name="email">Email</string>
+    <string name="btngiris">Giriş Yap</string>
+    <string name="uyeKontrolText">Üye değil misin?</string>
+    <string name="forgotPassword"> Şifremi Unuttum </string>
+
+    <!---    Register activity Strings     -->
+    <string name="fitnowkayit">FitNow Kayıt Ekranı</string>
+    <string name="register_isimsoyisim">İsim Soyisim </string>
+    <string name="kayit">Kayıt Ol</string>
+    <string name="sifretekrar">Şifre Tekrarı</string>
+    <string name="geridon">Geri Dön</string>
+    <string name="username">Username</string>
+
+    <!---    forgotPassword dialog Strings     -->
+    <string name="infoForgotPassword"> E-Mailinizi girip Gönder tuşuna basınız. </string>
+    <string name="closeDialog">Kapat</string>
+    <string name="sendMail">Gönder</string>
+
+
+    <!---    profile fragment Strings     -->
+    <string name="boyTextView">Boyunuz:</string>
+    <string name="yasTextView">Yaşınız:</string>
+    <string name="kiloTextView">Kilonuz:</string>
+    <string name="updateAccTextView">Bilgilerinizi güncellemek için sağ üstteki menüden hesap ayarlarına gidiniz</string>
+    <string name="exerciseStatus">Egzersiz durumunuz</string>
+
+    <!---    menu Strings     -->
+
+    <string name="menuFastFoodBTN">Gıda</string>
+    <string name="menuCalorieBTN">Sağlık</string>
+    <string name="menuAccountBTN">Profil</string>
+    <string name="menuFavoriteBTN">Favoriler</string>
+    <string name="mainMenuUpdateAcc">Mail/Şifre değiştir</string>
+    <string name="mainMenuGoAccSettings">Hesap Ayarları</string>
+    <string name="MainMenuVerifiedEmail">Email Onay durumu</string>
+
+    <!---    updateAcc Strings     -->
+    <string name="update">Güncelle</string>
+    <string name="changeMail">Mail değiştir</string>
+    <string name="newPassText">Yeni şifreniz</string>
+    <string name="saveString">Kaydet</string>
+    <string name="enterPass">Lütfen şifrenizi giriniz</string>
+    <string name="changePass">Şifre değiştir</string>
+
+    <!---   userinformation strings     -->
+    <string name="female">Kadın</string>
+    <string name="male">Erkek</string>
+    <string name="height">Boy giriniz</string>
+    <string name="age">Yaşınızı giriniz</string>
+    <string name="exercise">Haftada kaç kez egzersiz yapıyorsun?</string>
+    <string name="job">Mesleğiniz</string>
+    <string name="gender">Cinsiyetiniz</string>
+    <string name="weight">Kilonuzu giriniz</string>
+    <string name="heightHint">Örn. 170</string>
+    <string name="ageHint">Örn. 20</string>
+    <string name="exerciseHint">Örn. 3 Kez</string>
+    <string name="jobHint">Örn. Doktor</string>
+    <string name="weightHint">Örn. 75</string>
+
+    <!---   fastfood fragment strings     -->
+    <string name="apple">Apple</string>
+    <string name="banana">Banana</string>
+    <string name="watermelon">Watermelon</string>
+    <string name="lemon">Lemon</string>
+    <string name="add_favorite">Favoriye ekle</string>
+
+    <!---   favorite fragment strings     -->
+    <string name="haveNotFav">Favoriye herhangi bir şey eklemediniz.</string>
+    
+
+    <!---    Finish     -->
+
+
+</resources>
