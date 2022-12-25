@@ -28,7 +28,7 @@ class Login(val context:Context) {
                 Thread.sleep(1000)
             }
         } finally {
-            fixedRateTimer?.cancel();
+            fixedRateTimer?.cancel()
         }
         Log.e("enaltrespone çalıştı", response.toString())
      return response

@@ -14,14 +14,11 @@ class LoginViewModel(application: Application):AndroidViewModel(application) {
     private val _uiState:MutableLiveData<UiState> = MutableLiveData(UiState.IDLE)
     val uiState:LiveData<UiState> = _uiState
 
-
-
     private val loginUseCase= LoginUseCase(getApplication<Application>().applicationContext)
 
     fun login(email:String, password:String){
         viewModelScope.launch {
             _uiState.postValue(UiState.IN_PROGRESS)
-            Log.e("LoginViewModel",email+password)
             val isLoginSuccessful=loginUseCase(email,password)
             if (isLoginSuccessful) _uiState.postValue(UiState.LOGIN_SUCCESS)
             else _uiState.postValue(UiState.LOGIN_FAILED)

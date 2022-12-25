@@ -46,6 +46,11 @@
             app:destination="@id/userHomeActivity"
             app:popUpTo="@id/splashFragment"
             app:popUpToInclusive="true"/>
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true"/>
     </fragment>
 
     <fragment
@@ -58,4 +63,14 @@
         android:name="com.example.fitnow.ui.user.UserHomeActivity"
         android:label="activity_user_home"
         tools:layout="@layout/activity_user_home" />
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.example.fitnow.ui.authentication.RegisterFragment"
+        android:label="RegisterFragment" >
+        <action
+            android:id="@+id/action_registerFragment_to_userHomeActivity"
+            app:destination="@id/userHomeActivity"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true"/>
+    </fragment>
 </navigation>

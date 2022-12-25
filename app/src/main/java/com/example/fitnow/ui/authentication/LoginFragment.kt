@@ -1,9 +1,8 @@
 package com.example.fitnow.ui.authentication
 
 
-import android.content.Intent
+
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -14,13 +13,9 @@ import androidx.navigation.fragment.findNavController
 import com.example.fitnow.R
 import com.example.fitnow.data.userOperations.Login
 import com.example.fitnow.databinding.FragmentLoginBinding
-import kotlinx.android.synthetic.main.activity_home.*
+import com.example.fitnow.ui.user.ForgotPasswordFragment
 
-/**
- * A simple [Fragment] subclass.
- * Use the [LoginFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
+
 class LoginFragment : Fragment() {
     private var _binding: FragmentLoginBinding? = null
     private val binding get()= _binding!!
@@ -47,19 +42,17 @@ class LoginFragment : Fragment() {
        binding.btnGiris.setOnClickListener {
            val email= binding.emailText.text.toString()
            val password = binding.girisSifre.text.toString()
-           Log.e("LoginFragment",email+password)
-                viewModel.login(email,password)
+           viewModel.login(email,password)
         }
 
-        /*// Şifremi unuttuma basıldığında ekrana ilgili dialog penceresini açıyorum.
-        forgotPasswordTextView.setOnClickListener{
-            ForgotPasswordFragment().show(supportFragmentManager,"forgotPasswordFragment")
-        }*/
+        // Şifremi unuttuma basıldığında ekrana ilgili dialog penceresini açıyorum.
+        binding.forgotPasswordTextView.setOnClickListener{
+            ForgotPasswordFragment().show(childFragmentManager,"forgotPasswordFragment")
+        }
 
         // Kayıt ola bastığında ise registerActivitye yönlendiriyorum
         binding.kayitOlText.setOnClickListener {
-            startActivity(Intent(context, RegisterActivity::class.java))
-            TODO("registerFragment oluştur sonrasında burada mvvm uyarla")
+           findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
         }
     }
 
@@ -68,7 +61,6 @@ class LoginFragment : Fragment() {
             when(state){
                 LoginViewModel.UiState.IDLE -> {
                     enableDisableComponents(true)
-                    binding.progressBar2.visibility= View.INVISIBLE
                 }
                 LoginViewModel.UiState.LOGIN_SUCCESS -> {
                     Toast.makeText(context, "Giriş başarılı. Hoşgeldiniz ", Toast.LENGTH_SHORT).show()
@@ -77,11 +69,9 @@ class LoginFragment : Fragment() {
                 LoginViewModel.UiState.LOGIN_FAILED -> {
                     Toast.makeText(context, "Hatalı giriş.", Toast.LENGTH_SHORT).show()
                     enableDisableComponents(true)
-                    binding.progressBar2.visibility= View.INVISIBLE
                 }
                 LoginViewModel.UiState.IN_PROGRESS -> {
                     enableDisableComponents(false)
-                    binding.progressBar2.visibility= View.VISIBLE
                 }
                 else -> {
                     Toast.makeText(context, "LoginFragment UIstate unhandled: $state", Toast.LENGTH_SHORT).show()
@@ -94,6 +84,9 @@ class LoginFragment : Fragment() {
         binding.btnGiris.isEnabled = value
         binding.emailText.isEnabled = value
         binding.girisSifre.isEnabled = value
+        if(value) binding.progressBar2.visibility= View.INVISIBLE
+        else binding.progressBar2.visibility= View.VISIBLE
+
 
     }
 
