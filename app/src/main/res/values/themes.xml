@@ -1,16 +1,16 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.FitNow" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.FitNow" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/app_ascent</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
-        <item name="colorOnPrimary">@color/black</item>
+        <item name="colorPrimary">@color/lavender_blue</item>
+        <item name="colorPrimaryVariant">@color/rocket_metallic</item>
+        <item name="colorOnPrimary">@color/black_coffe</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/app_secondary</item>
-        <item name="colorSecondaryVariant">@color/teal_700</item>
-        <item name="colorOnSecondary">@color/app_ascent</item>
+        <item name="colorSecondary">@color/mint_cream</item>
+        <item name="colorSecondaryVariant">@color/heliotrope_gray</item>
+        <item name="colorOnSecondary">@color/cadet_blue</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" >@color/app_ascent</item>
+        <item name="android:statusBarColor">?attr/colorOnSecondary</item>
         <!-- Customize your theme here. -->
     </style>
 </resources>

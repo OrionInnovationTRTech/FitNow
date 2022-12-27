@@ -17,37 +17,18 @@
         android:theme="@style/Theme.FitNow"
         tools:targetApi="31">
         <activity
-            android:name=".ui.user.UserinformationActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.user.UserHomeActivity"
-            android:configChanges="orientation|screenSize|keyboardHidden"
-            android:exported="false"
-            android:screenOrientation="fullSensor" />
-        <activity
-            android:name=".ui.authentication.RegisterActivity"
-            android:configChanges="orientation|screenSize|keyboardHidden"
-            android:exported="false"
-            android:screenOrientation="fullSensor"
-            android:windowSoftInputMode="adjustResize"/>
-        <activity
-            android:name=".ui.authentication.HomeActivity"
-            android:configChanges="orientation|screenSize|keyboardHidden"
-            android:exported="false"
-            android:screenOrientation="fullSensor" />
-        <activity
-            android:name=".ui.MainActivity"
-            android:configChanges="orientation|screenSize|keyboardHidden"
-            android:exported="true"
-            android:screenOrientation="fullSensor"
-            >
+            android:name=".view.MainActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
         </activity>
-
-
     </application>
 
 </manifest>

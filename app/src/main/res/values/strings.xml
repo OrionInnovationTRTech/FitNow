@@ -3,6 +3,10 @@
     <string name="app_name">FitNow</string>
     <string name="logout">Çıkış yap</string>
     <string name="hidden">************</string>
+    <string name="fill"> Lütfen Boş bırakmayınız</string>
+    <string name="failed">Hatalı giriş</string>
+    <string name="UIerror">UIstate unhandled:</string>
+    <string name="passNotMatch">Şifreleriniz eşleşmiyor</string>
 
     <!---    Onboarding Strings     -->
     <string name="welcome_message">FitNow\'a hoşgeldiniz</string>
@@ -18,21 +22,25 @@
     <string name="third_screen_btnnext">Başlayalım</string>
     <string name="btn_first_screen">Sonraki</string>
 
-    <!---    Home activity Strings     -->
-    <string name="fitnowgiris">FitNow Giriş Ekranı</string>
-    <string name="sifre">Şifre</string>
-    <string name="email">Email</string>
+    <!---    loginFragment Strings     -->
+    <string name="loginpagewelcomemessage">FitNow Giriş Ekranı</string>
     <string name="btngiris">Giriş Yap</string>
-    <string name="uyeKontrolText">Üye değil misin?</string>
+    <string name="loginPageSignUpText">Üye değil misin?</string>
     <string name="forgotPassword"> Şifremi Unuttum </string>
+    <string name="passwordInput">Şifreniz</string>
+    <string name="email">Email</string>
 
-    <!---    Register activity Strings     -->
-    <string name="fitnowkayit">FitNow Kayıt Ekranı</string>
-    <string name="register_isimsoyisim">İsim Soyisim </string>
-    <string name="kayit">Kayıt Ol</string>
-    <string name="sifretekrar">Şifre Tekrarı</string>
-    <string name="geridon">Geri Dön</string>
-    <string name="username">Username</string>
+
+    <!---    Register fragment Strings     -->
+    <string name="registerPageWelcomeMessage">FitNow Kayıt Ekranı</string>
+    <string name="nameSurname">İsim Soyisim </string>
+    <string name="signUp">Kayıt Ol</string>
+    <string name="passwordAgain">Şifre Tekrarı</string>
+    <string name="goBack">Geri Dön</string>
+    <string name="username">Kullanıcı adı</string>
+    <string name="password">Şifre(En az 6 karakter)</string>
+    <string name="emailRegister">Email(**@*.com/tr/net vb.)</string>
+    <string name="registerSuccess">Kayıt Başarılı. Lütfen giriş yapınız</string>
 
     <!---    forgotPassword dialog Strings     -->
     <string name="infoForgotPassword"> E-Mailinizi girip Gönder tuşuna basınız. </string>
@@ -41,11 +49,13 @@
 
 
     <!---    profile fragment Strings     -->
+    <string name="profileText">Profiliniz</string>
     <string name="boyTextView">Boyunuz:</string>
     <string name="yasTextView">Yaşınız:</string>
     <string name="kiloTextView">Kilonuz:</string>
-    <string name="updateAccTextView">Bilgilerinizi güncellemek için sağ üstteki menüden hesap ayarlarına gidiniz</string>
+    <string name="updateAccTextView">Lütfen hesap ayarlarına gidip bilgilerinizi güncelleyiniz</string>
     <string name="exerciseStatus">Egzersiz durumunuz</string>
+
 
     <!---    menu Strings     -->
 
@@ -53,6 +63,7 @@
     <string name="menuCalorieBTN">Sağlık</string>
     <string name="menuAccountBTN">Profil</string>
     <string name="menuFavoriteBTN">Favoriler</string>
+    <string name="menuSettingsBTN">Ayarlar</string>
     <string name="mainMenuUpdateAcc">Mail/Şifre değiştir</string>
     <string name="mainMenuGoAccSettings">Hesap Ayarları</string>
     <string name="MainMenuVerifiedEmail">Email Onay durumu</string>
@@ -81,14 +92,29 @@
     <string name="weightHint">Örn. 75</string>
 
     <!---   fastfood fragment strings     -->
+    <string name="search">Ara</string>
     <string name="apple">Apple</string>
     <string name="banana">Banana</string>
     <string name="watermelon">Watermelon</string>
     <string name="lemon">Lemon</string>
     <string name="add_favorite">Favoriye ekle</string>
+    <string name="searchFood">Aramak istediğiniz gıda</string>
+    <string name="cantFoundFood">Arama sonucunda bir şey bulunamadı</string>
 
     <!---   favorite fragment strings     -->
     <string name="haveNotFav">Favoriye herhangi bir şey eklemediniz.</string>
+    <string name="favoritesBGText">Favorileriniz</string>
+
+    <!---   calorie fragment strings     -->
+    <string name="weak">Zayıfsınız, biraz daha düzgün beslenip kilo almanız sizin için daha güzel olur</string>
+    <string name="normal">İdeal kilodasınız. Düzgün beslenmeye devam edin, en iyi vücüda sahip olabilirsiniz :)</string>
+    <string name="normalplus">İdealin üstü kilodasınız, biraz çaba ile düzgün bir vücuda sahip olabilirsiniz</string>
+    <string name="obez">Obezlik kilosundasınız, yeme içmenize çok daha fazla dikkat etmeniz gerekmekte!</string>
+    <string name="megaobez">Kötü durumdasınız, tıbbi yardıma muhtaç durumdasınız. Kendinizi üzmeden en yakın sağlık kuruluşundan yardım isteyiniz</string>
+    <string name="badentry">Düzgün veri girişi yapmanızı rica ederim</string>
+    <string name="inputHealth">Vücut kitle endeksinizi hesaplamamız için hesap ayarlarına gidip bilgilerinizi güncellemeniz gerekmektedir.</string>
+    <string name="weight_height_index">Boy/Kilo Endeksi</string>
+    <string name="calorieBGText">Saglik Durumunuz</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 

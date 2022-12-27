@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:tools="http://schemas.android.com/tools">
+<RelativeLayout
     android:layout_height="match_parent"
-    android:layout_width="match_parent">
+    android:layout_width="match_parent"
+    android:background="@color/mint_cream"
+    tools:context=".view.authentication.RegisterFragment">
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -13,28 +15,28 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:context=".ui.authentication.RegisterActivity">
+            >
 
             <ImageView
-                android:id="@+id/imageView"
+                android:id="@+id/registerPageLogo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/logo"
-                android:contentDescription="@string/logout" />
+                app:srcCompat="@drawable/fitnowlogo"
+                android:contentDescription="@string/registerPageWelcomeMessage" />
 
             <TextView
-                android:id="@+id/kayitText"
+                android:id="@+id/registerPageWelcomeMessage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/fitnowkayit"
+                android:text="@string/registerPageWelcomeMessage"
                 android:textSize="30sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/imageView" />
+                app:layout_constraintTop_toBottomOf="@id/registerPageLogo" />
 
             <EditText
                 android:autofillHints="name"
@@ -43,11 +45,11 @@
                 android:layout_height="48dp"
                 android:layout_marginTop="24dp"
                 android:ems="10"
-                android:hint="@string/register_isimsoyisim"
+                android:hint="@string/nameSurname"
                 android:inputType="textPersonName"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/kayitText" />
+                app:layout_constraintTop_toBottomOf="@+id/registerPageWelcomeMessage" />
 
             <EditText
                 android:autofillHints="emailAddress"
@@ -56,7 +58,7 @@
                 android:layout_height="48dp"
                 android:layout_marginTop="8dp"
                 android:ems="10"
-                android:hint="@string/email"
+                android:hint="@string/emailRegister"
                 android:inputType="textEmailAddress"
                 app:layout_constraintEnd_toEndOf="@+id/registerUsername"
                 app:layout_constraintStart_toStartOf="@+id/registerUsername"
@@ -69,7 +71,7 @@
                 android:layout_height="48dp"
                 android:layout_marginTop="8dp"
                 android:ems="10"
-                android:hint="@string/sifretekrar"
+                android:hint="@string/passwordAgain"
                 android:inputType="textPassword"
                 app:layout_constraintEnd_toEndOf="@+id/registerPassword"
                 app:layout_constraintStart_toStartOf="@+id/registerPassword"
@@ -80,9 +82,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="76dp"
-                android:text="@string/geridon"
-                android:textColor="@color/white"
+                android:background="@drawable/btn_bg"
+                android:text="@string/goBack"
                 android:textAllCaps="false"
+                android:visibility="visible"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/btnRegister"
@@ -92,15 +95,15 @@
                 android:id="@+id/btnRegister"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/kayit"
-                android:textColor="@color/white"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/btn_bg"
+                android:text="@string/signUp"
                 android:textAllCaps="false"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.557"
                 app:layout_constraintStart_toEndOf="@+id/btn_back"
                 app:layout_constraintTop_toBottomOf="@+id/registerPassword2"
-                app:layout_constraintVertical_bias="0.565" />
+                app:layout_constraintVertical_bias="1.0" />
 
             <EditText
                 android:autofillHints="password"
@@ -109,7 +112,7 @@
                 android:layout_height="48dp"
                 android:layout_marginTop="8dp"
                 android:ems="10"
-                android:hint="@string/sifre"
+                android:hint="@string/password"
                 android:inputType="textPassword"
                 app:layout_constraintEnd_toEndOf="@+id/registerEmail"
                 app:layout_constraintStart_toStartOf="@+id/registerEmail"
@@ -147,3 +150,4 @@
 
     </ScrollView>
 </RelativeLayout>
+</layout>

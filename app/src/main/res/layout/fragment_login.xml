@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    >
+<androidx.constraintlayout.widget.ConstraintLayout
     android:layout_height="match_parent"
-    android:layout_width="match_parent">
+    android:layout_width="match_parent"
+    android:background="@color/mint_cream"
+    tools:context=".view.authentication.LoginFragment">
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -14,11 +18,11 @@
            android:layout_height="wrap_content">
 
            <TextView
-               android:id="@+id/kayitText"
+               android:id="@+id/registerPageWelcomeMessage"
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
                android:layout_marginTop="16dp"
-               android:text="@string/fitnowgiris"
+               android:text="@string/loginpagewelcomemessage"
                android:textSize="30sp"
                app:layout_constraintEnd_toEndOf="parent"
                app:layout_constraintHorizontal_bias="0.496"
@@ -32,21 +36,23 @@
                android:layout_marginStart="48dp"
                android:layout_marginTop="32dp"
                android:layout_marginEnd="48dp"
+               android:autofillHints="emailAddress"
                android:ems="10"
                android:hint="@string/email"
                android:inputType="textEmailAddress"
                app:layout_constraintEnd_toEndOf="parent"
                app:layout_constraintHorizontal_bias="0.0"
                app:layout_constraintStart_toStartOf="parent"
-               app:layout_constraintTop_toBottomOf="@+id/kayitText" />
+               app:layout_constraintTop_toBottomOf="@+id/registerPageWelcomeMessage" />
 
            <EditText
-               android:id="@+id/girisSifre"
+               android:id="@+id/passwordLogin"
                android:layout_width="0dp"
                android:layout_height="48dp"
                android:layout_marginTop="32dp"
                android:ems="10"
-               android:hint="@string/sifre"
+               android:autofillHints="password"
+               android:hint="@string/passwordInput"
                android:inputType="textPassword"
                app:layout_constraintEnd_toEndOf="@+id/emailText"
                app:layout_constraintHorizontal_bias="0.0"
@@ -54,24 +60,24 @@
                app:layout_constraintTop_toBottomOf="@+id/emailText" />
 
            <TextView
-               android:id="@+id/kayitOlText"
+               android:id="@+id/signUpTextView"
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
-               android:text="@string/uyeKontrolText"
+               android:text="@string/loginPageSignUpText"
                app:drawableLeftCompat="@drawable/ic_baseline_person_add_24"
-               app:layout_constraintBottom_toBottomOf="@+id/btn_giris"
+               app:layout_constraintBottom_toBottomOf="@+id/sign_inButton"
                app:layout_constraintStart_toStartOf="@+id/forgotPasswordTextView"
-               app:layout_constraintTop_toTopOf="@+id/btn_giris"
+               app:layout_constraintTop_toTopOf="@+id/sign_inButton"
                app:layout_constraintVertical_bias="0.413" />
 
            <Button
-               android:id="@+id/btn_giris"
+               android:id="@+id/sign_inButton"
                android:layout_width="wrap_content"
                android:layout_height="48dp"
                android:layout_marginTop="32dp"
                android:text="@string/btngiris"
-               android:textColor="@color/white"
                android:textAllCaps="false"
+               android:background="@drawable/btn_bg"
                app:layout_constraintEnd_toEndOf="parent"
                app:layout_constraintHorizontal_bias="0.772"
                app:layout_constraintStart_toStartOf="parent"
@@ -79,8 +85,9 @@
 
 
            <ProgressBar
-               android:id="@+id/progressBar2"
+               android:id="@+id/loginProgressBar"
                style="?android:attr/progressBarStyle"
+               android:indeterminateTint="@color/lavender_blue"
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
                android:visibility="invisible"
@@ -94,10 +101,13 @@
                android:layout_width="200dp"
                android:layout_height="180dp"
                android:layout_marginTop="16dp"
+               android:contentDescription="@string/loginpagewelcomemessage"
                app:layout_constraintEnd_toEndOf="parent"
+               app:layout_constraintHorizontal_bias="0.497"
                app:layout_constraintStart_toStartOf="parent"
                app:layout_constraintTop_toTopOf="parent"
-               app:srcCompat="@drawable/logo" />
+               app:srcCompat="@drawable/fitnowlogo"
+               tools:ignore="ImageContrastCheck" />
 
            <TextView
                android:id="@+id/forgotPasswordTextView"
@@ -107,18 +117,11 @@
                android:layout_marginTop="24dp"
                android:text="@string/forgotPassword"
                app:drawableLeftCompat="@drawable/lock"
-               app:layout_constraintStart_toStartOf="@+id/girisSifre"
-               app:layout_constraintTop_toBottomOf="@+id/girisSifre" />
-
-
-
-
+               app:layout_constraintStart_toStartOf="@+id/passwordLogin"
+               app:layout_constraintTop_toBottomOf="@+id/passwordLogin" />
 
        </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-
-
-
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
