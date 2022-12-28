@@ -8,7 +8,7 @@ data class SignUp(val nameSurname:String,
                   val email:String,
                   val password:String)
 
-data class weightHeightIndex(val weight:Int, val height:Int)
+data class WeightHeightIndex(val formattedIndex:String?, val whIndex:Double)
 
 
 data class FavoritesItem(

@@ -18,7 +18,6 @@ import com.example.fitnow.viewmodel.LoginViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 
 class LoginFragment : Fragment() {
-    private val activityObject=MainActivity()
     private var _binding: FragmentLoginBinding? = null
     private val binding get()= _binding!!
     lateinit var viewModel: LoginViewModel

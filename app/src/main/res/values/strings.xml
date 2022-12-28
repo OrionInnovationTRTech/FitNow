@@ -105,7 +105,7 @@
     <string name="haveNotFav">Favoriye herhangi bir şey eklemediniz.</string>
     <string name="favoritesBGText">Favorileriniz</string>
 
-    <!---   calorie fragment strings     -->
+    <!---   healthy fragment strings     -->
     <string name="weak">Zayıfsınız, biraz daha düzgün beslenip kilo almanız sizin için daha güzel olur</string>
     <string name="normal">İdeal kilodasınız. Düzgün beslenmeye devam edin, en iyi vücüda sahip olabilirsiniz :)</string>
     <string name="normalplus">İdealin üstü kilodasınız, biraz çaba ile düzgün bir vücuda sahip olabilirsiniz</string>
@@ -114,10 +114,8 @@
     <string name="badentry">Düzgün veri girişi yapmanızı rica ederim</string>
     <string name="inputHealth">Vücut kitle endeksinizi hesaplamamız için hesap ayarlarına gidip bilgilerinizi güncellemeniz gerekmektedir.</string>
     <string name="weight_height_index">Boy/Kilo Endeksi</string>
-    <string name="calorieBGText">Saglik Durumunuz</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-
+    <string name="healthyMenuName">Sağlık</string>
+    <string name="healthyBGText">Saglik Durumunuz</string>
 
     <!---    Finish     -->
 

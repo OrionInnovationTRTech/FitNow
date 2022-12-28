@@ -57,6 +57,7 @@ def glideVersion = '4.9.0'
 def rxJavaVersion = '2.1.1'
 def roomVersion = '2.4.3'
 def preferencesVersion = '1.2.0'
+def circleImageVersion = '3.1.0'
 
 dependencies {
 
@@ -95,6 +96,8 @@ dependencies {
     implementation "com.android.support:design:$supportVersion"
 
     implementation "androidx.preference:preference-ktx:$preferencesVersion"
+
+    implementation "de.hdodenhof:circleimageview:$circleImageVersion"
 
 
     implementation 'androidx.core:core-ktx:1.9.0'

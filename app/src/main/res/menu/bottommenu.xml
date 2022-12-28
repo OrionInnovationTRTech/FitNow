@@ -16,7 +16,7 @@
     <item
         android:id="@+id/healthyFragment"
         android:icon="@drawable/ic_calorie"
-        android:title="@string/weight_height_index" />
+        android:title="@string/healthyMenuName" />
     <item
         android:id="@+id/settingsFragment"
         android:icon="@drawable/ic_settings"
