@@ -23,6 +23,7 @@ class FoodFragment : Fragment() {
     private lateinit var viewModel:FoodViewModel
     private val foodAdapter= FoodAdapter(arrayListOf())
     var myLayoutManager:LinearLayoutManager?=null
+    //TODO(JSoup html parse edici)
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

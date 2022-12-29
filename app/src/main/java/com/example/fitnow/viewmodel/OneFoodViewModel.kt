@@ -8,7 +8,7 @@ import com.example.fitnow.model.IMAGE_APPLE
 class OneFoodViewModel:ViewModel() {
     val foodLiveData=MutableLiveData<MealData.Results>()
 
-    fun getDataFromRoom(foodDetails:MealData.Results){
+    fun getData(foodDetails:MealData.Results){
         foodLiveData.value=foodDetails
     }
 }

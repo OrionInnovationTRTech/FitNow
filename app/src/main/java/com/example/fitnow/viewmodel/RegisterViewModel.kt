@@ -42,7 +42,7 @@ class RegisterViewModel: ViewModel() {
         firebaseDatabase.child("Users")
             .child(userUID)
             .child("extra")
-            .child("egzersizDurumu")
+            .child("exerciseSituation")
             .setValue("Hiç")
     }
 }

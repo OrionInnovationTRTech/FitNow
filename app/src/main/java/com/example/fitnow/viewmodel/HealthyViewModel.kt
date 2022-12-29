@@ -28,12 +28,12 @@ class HealthyViewModel:ViewModel() {
         query.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 for (singleSnapshot in snapshot.children) {
-                    if(singleSnapshot.child("extra").child("kilo").value!=null) {
+                    if(singleSnapshot.child("extra").child("weight").value!=null) {
                         isHaveInput.value=true
                         val userWeight =
-                            singleSnapshot.child("extra").child("kilo").value.toString().toDouble()
+                            singleSnapshot.child("extra").child("weight").value.toString().toDouble()
                         val userHeight =
-                            singleSnapshot.child("extra").child("boy").value.toString().toDouble()
+                            singleSnapshot.child("extra").child("height").value.toString().toDouble()
                         val index: Double = userWeight / ((userHeight * userHeight) / 10000)
                         val lastIndex = writeIndex(index)
                         user.value = WeightHeightIndex(lastIndex, index)

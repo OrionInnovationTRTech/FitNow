@@ -1,13 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
-<FrameLayout
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".view.bottomMenuFragments.FavoritesFragment">
 
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/favGroupTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="favCountTextView,favRecyclerView" />
+
+    <TextView
+        android:id="@+id/emptyFav"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/haveNotFav"
+        android:visibility="invisible"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/umber"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/favoritesFragmentBg" />
+
+    <ImageView
+        android:layout_marginTop="4dp"
+        android:id="@+id/favoritesFragmentBg"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="@drawable/btn_bg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/favCountTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textSize="18sp"
+        android:textStyle="italic"
+        android:textColor="@color/umber"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/favoritesFragmentBg"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/favRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:alpha="255"
+        android:scrollbars="horizontal"
+        android:padding="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/favCountTextView"/>
 
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/favoritesBGText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/favoritesfont"
+        android:text="@string/favoritesBGText"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/favoritesFragmentBg"
+        app:layout_constraintEnd_toEndOf="@+id/favoritesFragmentBg"
+        app:layout_constraintStart_toStartOf="@+id/favoritesFragmentBg"
+        app:layout_constraintTop_toTopOf="@+id/favoritesFragmentBg" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

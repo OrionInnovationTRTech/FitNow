@@ -31,18 +31,26 @@ class OneFoodFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel=ViewModelProviders.of(this)[OneFoodViewModel::class.java]
+        var whereToGo=true
         arguments?.let {
             val foodInformation=MealData.Results()
             foodInformation.mId=OneFoodFragmentArgs.fromBundle(it).mId
             foodInformation.resultName=OneFoodFragmentArgs.fromBundle(it).foodName
             foodInformation.image=OneFoodFragmentArgs.fromBundle(it).imageURL
             foodInformation.content=OneFoodFragmentArgs.fromBundle(it).foodContent
-            viewModel.getDataFromRoom(foodInformation)
+            whereToGo=OneFoodFragmentArgs.fromBundle(it).fromWhere
+            viewModel.getData(foodInformation)
         }
         observeLiveData(view)
         binding.btnBack.setOnClickListener {
-            val action=OneFoodFragmentDirections.actionOneFoodFragmentToFoodFragment()
-            Navigation.findNavController(it).navigate(action)
+            if(whereToGo){
+                val action=OneFoodFragmentDirections.actionOneFoodFragmentToFoodFragment()
+                Navigation.findNavController(it).navigate(action)
+            } else {
+                val action=OneFoodFragmentDirections.actionOneFoodFragmentToFavoritesFragment()
+                Navigation.findNavController(it).navigate(action)
+            }
+
         }
 
 

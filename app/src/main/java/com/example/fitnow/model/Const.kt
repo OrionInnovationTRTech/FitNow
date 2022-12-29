@@ -9,3 +9,5 @@ const val IMAGE_APPLE = "https://spoonacular.com/cdn/ingredients_100x100/apple.j
 const val IMAGE_BANANA = "https://spoonacular.com/cdn/ingredients_100x100/bananas.jpg"
 const val IMAGE_WATERMELON = "https://spoonacular.com/cdn/ingredients_100x100/watermelon.png"
 const val IMAGE_LEMON = "https://spoonacular.com/cdn/ingredients_100x100/lemon.png"
+
+const val REGISTER_IMAGEURL = "https://firebasestorage.googleapis.com/v0/b/fitnow-7c41f.appspot.com/o/nophoto_user.png?alt=media&token=6bb0c0d8-2820-40b4-9819-a3bd03b06ce1"

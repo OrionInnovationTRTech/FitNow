@@ -12,19 +12,22 @@
     <color name="blue">#0000FF</color>
 
 
-    <!--- Açık pembeden kahverengiye hafif tonlar -->
+    Açık pembeden kahverengiye hafif tonlar
     <color name="lavender_blue">#C9C9EE</color>
     <color name="heliotrope_gray">#BAABBD</color>
     <color name="mountbatten_pink">#9F838C</color>
     <color name="cinereous">#8D7471</color>
     <color name="rocket_metallic">#816F68</color>
 
-    <!--- Koyu açık karışık tonlar -->
+    Koyu açık karışık tonlar
     <color name="black_coffe">#32292F</color>
     <color name="middle_bluegreen">#99E1D9</color>
     <color name="cadet_blue">#70ABAF</color>
     <color name="umber">#705D56</color>
     <color name="mint_cream">#F0F7F4</color>
 
+    <color name="crimson">#DD1B42</color>
+
 
 </resources>
+

@@ -65,8 +65,9 @@
     <string name="menuFavoriteBTN">Favoriler</string>
     <string name="menuSettingsBTN">Ayarlar</string>
     <string name="mainMenuUpdateAcc">Mail/Şifre değiştir</string>
-    <string name="mainMenuGoAccSettings">Hesap Ayarları</string>
+    <string name="mainMenuGoAccSettings">Hesap    Ayarlari</string>
     <string name="MainMenuVerifiedEmail">Email Onay durumu</string>
+    <string name="MainMenuDeleteAccount">Hesabı sil</string>
 
     <!---    updateAcc Strings     -->
     <string name="update">Güncelle</string>
@@ -75,8 +76,11 @@
     <string name="saveString">Kaydet</string>
     <string name="enterPass">Lütfen şifrenizi giriniz</string>
     <string name="changePass">Şifre değiştir</string>
+    <string name="emailPassNotSame">Email ile şifreniz uyuşmuyor, Lütfen tekrar deneyin</string>
+    <string name="success">İşlem başarılı</string>
 
-    <!---   userinformation strings     -->
+
+    <!---   settings strings     -->
     <string name="female">Kadın</string>
     <string name="male">Erkek</string>
     <string name="height">Boy giriniz</string>
@@ -90,6 +94,8 @@
     <string name="exerciseHint">Örn. 3 Kez</string>
     <string name="jobHint">Örn. Doktor</string>
     <string name="weightHint">Örn. 75</string>
+    <string name="updateSuccess">Güncelleme başarılı</string>
+    <string name="updateFailed">İşlem başarısız.</string>
 
     <!---   fastfood fragment strings     -->
     <string name="search">Ara</string>
@@ -116,6 +122,8 @@
     <string name="weight_height_index">Boy/Kilo Endeksi</string>
     <string name="healthyMenuName">Sağlık</string>
     <string name="healthyBGText">Saglik Durumunuz</string>
+    <string name="newEmailText">Yeni Epostanız</string>
+
 
     <!---    Finish     -->
 

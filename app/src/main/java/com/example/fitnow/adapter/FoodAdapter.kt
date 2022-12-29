@@ -36,7 +36,8 @@ class FoodAdapter(private val foodList: ArrayList<MealData.Results>): RecyclerVi
                     val itemId=createFoodLineNow.mId.toString()
                     val itemName=createFoodLineNow.resultName.toString()
                     val itemImage=createFoodLineNow.image.toString()
-                    val newFavoriteItem = FavoritesItem(itemId,itemName,itemImage)
+                    val itemContent=createFoodLineNow.content.toString()
+                    val newFavoriteItem = FavoritesItem(itemId,itemName,itemImage,itemContent)
                     database
                         .child("Users")
                         .child((FirebaseAuth.getInstance().currentUser?.uid).toString())
@@ -90,13 +91,12 @@ class FoodAdapter(private val foodList: ArrayList<MealData.Results>): RecyclerVi
     override fun onBindViewHolder(holder: FoodViewHolder, position: Int) {
         val createFoodLineNow = foodList[position] // Oluşturulan nesnenin bilgilerini tek alıp yollama kısmı
         holder.setData(createFoodLineNow,position)
-
         holder.view.setOnClickListener {
             val foodName=createFoodLineNow.resultName.toString()
             val imageUri=createFoodLineNow.image.toString()
             val foodContent=createFoodLineNow.content.toString()
             val mId=createFoodLineNow.mId
-            val action=FoodFragmentDirections.actionFoodFragmentToOneFoodFragment(foodName,imageUri,foodContent, mId!!)
+            val action=FoodFragmentDirections.actionFoodFragmentToOneFoodFragment(foodName,imageUri,foodContent, mId!!,true)
             Navigation.findNavController(it).navigate(action)
         }
 

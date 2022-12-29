@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.Navigation
 import com.example.fitnow.R
 import com.example.fitnow.databinding.FragmentRegisterBinding
+import com.example.fitnow.model.REGISTER_IMAGEURL
 import com.example.fitnow.model.SignUp
 import com.example.fitnow.viewmodel.RegisterViewModel
 
@@ -42,7 +43,11 @@ class RegisterFragment : Fragment() {
             if(userNameSurname!=""&& userEmail!="" && userUsername!="" &&
                 userPassword!="" && userPassword2!=""){
                 if(userPassword==userPassword2){
-                    val userInformation= SignUp(userNameSurname,userUsername,userEmail,userPassword)
+                    val userInformation= SignUp(userNameSurname,
+                        userUsername,
+                        userEmail,
+                        userPassword,
+                        REGISTER_IMAGEURL)
                     viewModel.signUpWithFirebase(userInformation)
                 }else{
                     Toast.makeText(context,R.string.passNotMatch, Toast.LENGTH_LONG).show()

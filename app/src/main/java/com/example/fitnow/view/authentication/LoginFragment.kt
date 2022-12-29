@@ -12,10 +12,8 @@ import androidx.navigation.Navigation
 import com.example.fitnow.R
 import com.example.fitnow.databinding.FragmentLoginBinding
 import com.example.fitnow.model.SignIn
-import com.example.fitnow.service.MenuListener
-import com.example.fitnow.view.MainActivity
+import com.example.fitnow.view.user.ForgotPasswordFragment
 import com.example.fitnow.viewmodel.LoginViewModel
-import kotlinx.android.synthetic.main.activity_main.*
 
 class LoginFragment : Fragment() {
     private var _binding: FragmentLoginBinding? = null
@@ -33,7 +31,7 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        // TODO(BENİ HATIRLA YAP)
         viewModel = ViewModelProviders.of(this)[LoginViewModel::class.java]
         observeLiveData(view)
 
@@ -52,6 +50,9 @@ class LoginFragment : Fragment() {
             else
                 Toast.makeText(context,R.string.fill,Toast.LENGTH_LONG).show()
 
+        }
+        binding.forgotPasswordTextView.setOnClickListener {
+            ForgotPasswordFragment().show(childFragmentManager,"forgotPasswordFragment")
         }
 
     }

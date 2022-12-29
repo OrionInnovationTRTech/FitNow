@@ -6,7 +6,7 @@
         <item name="colorPrimaryVariant">@color/rocket_metallic</item>
         <item name="colorOnPrimary">@color/black_coffe</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/mint_cream</item>
+        <item name="colorSecondary">@color/crimson</item>
         <item name="colorSecondaryVariant">@color/heliotrope_gray</item>
         <item name="colorOnSecondary">@color/cadet_blue</item>
         <!-- Status bar color. -->

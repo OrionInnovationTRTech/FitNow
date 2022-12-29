@@ -24,8 +24,8 @@ class SplashFragment : Fragment() {
 
                 val action= SplashFragmentDirections.actionSplashFragmentToLoginFragment()
                 Navigation.findNavController(view).navigate(action)
-                /*val action= SplashFragmentDirections.actionSplashFragmentToProfileFragment()
-                Navigation.findNavController(view).navigate(action)*/
+                /* val action= SplashFragmentDirections.actionSplashFragmentToProfileFragment()
+                 Navigation.findNavController(view).navigate(action)*/
 
             }else{
                 val action= SplashFragmentDirections.actionSplashFragmentToOnBoardingFragment()

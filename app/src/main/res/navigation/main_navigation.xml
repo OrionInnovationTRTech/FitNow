@@ -77,6 +77,13 @@
         <argument
             android:name="foodContent"
             app:argType="string" />
+        <action
+            android:id="@+id/action_oneFoodFragment_to_favoritesFragment"
+            app:destination="@id/favoritesFragment" />
+        <argument
+            android:name="fromWhere"
+            app:argType="boolean"
+            android:defaultValue="true" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
@@ -87,7 +94,11 @@
         android:id="@+id/favoritesFragment"
         android:name="com.example.fitnow.view.bottomMenuFragments.FavoritesFragment"
         android:label="fragment_favorites"
-        tools:layout="@layout/fragment_favorites" />
+        tools:layout="@layout/fragment_favorites" >
+        <action
+            android:id="@+id/action_favoritesFragment_to_oneFoodFragment"
+            app:destination="@id/oneFoodFragment" />
+    </fragment>
     <fragment
         android:id="@+id/healthyFragment"
         android:name="com.example.fitnow.view.bottomMenuFragments.HealthyFragment"
@@ -97,5 +108,9 @@
         android:id="@+id/settingsFragment"
         android:name="com.example.fitnow.view.bottomMenuFragments.SettingsFragment"
         android:label="fragment_settings"
-        tools:layout="@layout/fragment_settings" />
+        tools:layout="@layout/fragment_settings" >
+        <action
+            android:id="@+id/action_settingsFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
 </navigation>

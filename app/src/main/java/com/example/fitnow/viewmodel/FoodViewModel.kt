@@ -33,13 +33,12 @@ class FoodViewModel: ViewModel() {
                 }else {
                     foodLoading.value=false
                     foodList.value = queryListener[0].results
-
                 }
 
             }
 
             override fun onFailure(call: Call<MealData?>, t: Throwable) {
-                println("Hata"+t.stackTraceToString())
+                println("Hata: ${t.stackTraceToString()}")
             }
         })
     }
