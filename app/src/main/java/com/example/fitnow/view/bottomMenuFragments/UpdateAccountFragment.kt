@@ -20,7 +20,7 @@ class UpdateAccountFragment : Fragment() {
     lateinit var viewModel:UpdateAccountViewModel
     lateinit var job: String
 
-
+    //TODO("kullanıcı adı isim soyisim gibi bilgileri de güncellet")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -42,21 +42,28 @@ class UpdateAccountFragment : Fragment() {
             val userEmail=binding.emailEditText.text.toString()
             val userPassword=binding.passwordEditText.text.toString()
             if(userEmail!="" && userPassword!="") {
-                binding.emailEditText.isEnabled=false
-                binding.passwordEditText.isEnabled=false
                 viewModel.checkEmailPassword(userEmail,userPassword)
-            }else viewModel.errorMessage.value=getString(R.string.fill)
+                if(viewModel.response.value!=false){
+                    binding.emailEditText.isEnabled=false
+                    binding.passwordEditText.isEnabled=false
+                }
+            }else{
+                viewModel.errorMessage.value=getString(R.string.fill)
+                viewModel.showMain.value=true
+            }
         }
         binding.changeEmailBtn.setOnClickListener {
             binding.changePassConstraint.visibility=View.GONE
             job="Email"
-            val userEmail=binding.emailEditText.text.toString()
-            val userPassword=binding.passwordEditText.text.toString()
-            if(userEmail!="" && userPassword!="") {
-                binding.emailEditText.isEnabled=false
-                binding.passwordEditText.isEnabled=false
-                viewModel.checkEmailPassword(userEmail,userPassword)
-            }else viewModel.errorMessage.value=getString(R.string.fill)
+            val userEmail=binding.emailEditText
+            val userPassword=binding.passwordEditText
+            if(userEmail.text.toString()!="" && userPassword.text.toString()!="") {
+                viewModel.checkEmailPassword(userEmail.text.toString(),userPassword.text.toString())
+
+            }else {
+                viewModel.errorMessage.value=getString(R.string.fill)
+                viewModel.showMain.value=true
+            }
         }
         binding.changeNewPassBtn.setOnClickListener {
             val newPassword=binding.newPassEditText.text.toString()
@@ -70,9 +77,6 @@ class UpdateAccountFragment : Fragment() {
         }
         observeLiveData()
     }
-
-    //TODO(şifre eşleşmesi yap)
-
 
 
     private fun observeLiveData() {
@@ -88,9 +92,6 @@ class UpdateAccountFragment : Fragment() {
                     else binding.changeEmailConstraint.visibility=View.VISIBLE
                 }
             }
-
-
-
         })
         viewModel.process.observe(viewLifecycleOwner, Observer { process->
             process?.let {
@@ -103,7 +104,18 @@ class UpdateAccountFragment : Fragment() {
         })
         viewModel.loading.observe(viewLifecycleOwner, Observer { loading->
             loading?.let {
-                binding.updateAccountGroup.isEnabled = !it
+                binding.changeEmailBtn.isEnabled=!it
+                binding.changePassBtn.isEnabled=!it
+                binding.newEmailEditText.isEnabled=!it
+                binding.newPassEditText.isEnabled=!it
+                binding.changeNewEmailBtn.isEnabled=!it
+                binding.changeNewPassBtn.isEnabled=!it
+            }
+        })
+        viewModel.showMain.observe(viewLifecycleOwner, Observer { value->
+            value?.let {
+                binding.emailEditText.isEnabled=it
+                binding.passwordEditText.isEnabled=it
             }
         })
 

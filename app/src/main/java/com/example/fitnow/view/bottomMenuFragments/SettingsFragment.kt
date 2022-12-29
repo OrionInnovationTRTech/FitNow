@@ -16,7 +16,11 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.fitnow.R
 import com.example.fitnow.databinding.FragmentSettingsBinding
+import com.example.fitnow.databinding.SlideHeaderBinding
+import com.example.fitnow.model.IMAGE_APPLE
 import com.example.fitnow.model.SettingsModel
+import com.example.fitnow.service.getImage
+import com.example.fitnow.service.progressDrawable
 import com.example.fitnow.viewmodel.SettingsViewModel
 import com.google.firebase.auth.FirebaseAuth
 import kotlin.system.exitProcess
@@ -26,6 +30,9 @@ class SettingsFragment : Fragment() {
     private val binding get()=_binding!!
     lateinit var viewModel:SettingsViewModel
     private var userGender="Erkek"
+
+    //TODO(fragment açıldığında drawer clicked itemleri sıfırla)
+    //TODO(Drawer kullanıc bilgilerini yap ------------                                             -> Olmuyor)
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,7 +48,7 @@ class SettingsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         viewModel.fillDatas()
         observeLiveData()
-        // TODO(KLAVYE AÇILINCA SCROLL OLAYINA ÇÖZÜM BUL)
+        // TODO(KLAVYE AÇILINCA SCROLL OLAYINA ÇÖZÜM BUL -----------------> Olmuyor)
     }
     private fun observeLiveData() {
         viewModel.emailSituation.observe(viewLifecycleOwner, Observer {response->
@@ -49,6 +56,8 @@ class SettingsFragment : Fragment() {
                 Toast.makeText(context,it,Toast.LENGTH_LONG).show()
             }
         })
+
+
 
         viewModel.userDetails.observe(viewLifecycleOwner, Observer { user->
             user?.let {
@@ -152,8 +161,6 @@ class SettingsFragment : Fragment() {
             if(userAge!="" && userJob !="" && userHeight!="" && userWeight !="")
                 viewModel.updateUser(SettingsModel(userHeight,userWeight,userAge,userJob,userExercise,userGender),it)
             else viewModel.errorMessage.value= getString(R.string.fill)
-
-            // TODO("Kullanıcıdan mantıklı veriler gelip gelmediğini kontrol et veya zorla")
         }
     }
 

@@ -31,7 +31,7 @@ class FoodFragment : Fragment() {
     ): View {
         _binding=FragmentFoodBinding.inflate(inflater,container,false)
         viewModel= ViewModelProviders.of(this)[FoodViewModel::class.java]
-        viewModel.refreshData("apple")
+        viewModel.refreshData(lastClickedItem)
         setClickableItems()
         myLayoutManager= LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         binding.recyclerviewFood.layoutManager = myLayoutManager
@@ -44,14 +44,28 @@ class FoodFragment : Fragment() {
     }
 
     private fun setClickableItems() {
-        binding.menuAppleImage.setOnClickListener { viewModel.refreshData("apple") }
-        binding.menuBananaImage.setOnClickListener { viewModel.refreshData("banana") }
-        binding.menuLemonImage.setOnClickListener { viewModel.refreshData("lemon") }
-        binding.menuWatermelonImage.setOnClickListener { viewModel.refreshData("watermelon") }
+        binding.menuAppleImage.setOnClickListener {
+            lastClickedItem="apple"
+            viewModel.refreshData("apple")
+        }
+        binding.menuBananaImage.setOnClickListener {
+            lastClickedItem="banana"
+            viewModel.refreshData("banana")
+        }
+        binding.menuLemonImage.setOnClickListener {
+            lastClickedItem="lemon"
+            viewModel.refreshData("lemon")
+        }
+        binding.menuWatermelonImage.setOnClickListener {
+            lastClickedItem="watermelon"
+            viewModel.refreshData("watermelon")
+        }
         binding.searchFoodBtn.setOnClickListener {
             val foodName=binding.searchByNameEditText.text.toString()
-            if(foodName!="")
+            if(foodName!=""){
+                lastClickedItem="foodName"
                 viewModel.refreshData(foodName)
+            }
             else Toast.makeText(context,R.string.cantFoundFood,Toast.LENGTH_SHORT).show()
         }
     }

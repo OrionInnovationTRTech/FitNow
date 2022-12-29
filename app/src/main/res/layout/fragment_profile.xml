@@ -19,7 +19,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <de.hdodenhof.circleimageview.CircleImageView
+    <ImageView
         android:id="@+id/profilesc_picture"
         android:layout_width="250dp"
         android:layout_height="200dp"
@@ -42,6 +42,18 @@
         app:layout_constraintEnd_toEndOf="@+id/profilesc_picture"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profilesc_picture" />
+
+    <ProgressBar
+        android:id="@+id/profilPictureProgressBar"
+        style="?android:attr/progressBarStyle"
+        android:indeterminateTint="@color/lavender_blue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@id/profilesc_picture"
+        app:layout_constraintEnd_toEndOf="@id/profilesc_picture"
+        app:layout_constraintStart_toStartOf="@id/profilesc_picture"
+        app:layout_constraintTop_toTopOf="@id/profilesc_picture" />
 
     <ProgressBar
         android:id="@+id/profileFragmentProgressBar"

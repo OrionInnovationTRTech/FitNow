@@ -28,3 +28,5 @@ data class FavoritesItem(
     val itemName: String,
     val itemImage: String,
     val itemContent:String)
+
+data class DrawerModel(val userImage:String, val userName:String)

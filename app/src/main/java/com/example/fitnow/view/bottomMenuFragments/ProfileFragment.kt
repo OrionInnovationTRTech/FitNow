@@ -1,6 +1,5 @@
 package com.example.fitnow.view.bottomMenuFragments
 
-import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -18,6 +17,8 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.fitnow.databinding.FragmentProfileBinding
 import com.example.fitnow.service.MainActivityListener
+import com.example.fitnow.service.getImage
+import com.example.fitnow.service.progressDrawable
 import com.example.fitnow.viewmodel.ProfileViewModel
 import com.squareup.picasso.Picasso
 import com.yalantis.ucrop.UCrop
@@ -33,8 +34,6 @@ class ProfileFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        //TODO(Progress bar koy fotoya)
-
         _binding=FragmentProfileBinding.inflate(inflater,container,false)
         viewModel= ViewModelProviders.of(this)[ProfileViewModel::class.java]
 
@@ -91,7 +90,7 @@ class ProfileFragment : Fragment() {
 
         viewModel.userInformation.observe(viewLifecycleOwner, Observer { userDetails->
             userDetails?.let { user->
-                Picasso.get().load(user.imageURL).into(binding.profilescPicture)
+                binding.profilescPicture.getImage(user.imageURL, progressDrawable(requireContext()))
                 binding.profilescName.text=user.nameSurname
                 binding.profilescAge.text=user.age
                 binding.profilescHeight.text=user.height
@@ -99,8 +98,10 @@ class ProfileFragment : Fragment() {
                 binding.jobTv.text=user.job
                 binding.exerciseTv.text=user.exercise
                 enableDisableComponents(false)
+
             }
         })
+
     }
 
     private fun enableDisableComponents(value:Boolean) {

@@ -19,7 +19,6 @@ class ProfileViewModel:ViewModel() {
     val isHaveInput=MutableLiveData<Boolean>()
     val loading=MutableLiveData<Boolean>()
     val errorMessage=MutableLiveData<String>()
-    val selectedImage=MutableLiveData<Uri>()
     val selectingImage=MutableLiveData<Uri>()
 
     private val firebaseAuth= FirebaseAuth.getInstance().currentUser
@@ -55,7 +54,6 @@ class ProfileViewModel:ViewModel() {
                 loading.value=false
             }
         })
-
     }
 
 

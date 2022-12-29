@@ -42,7 +42,6 @@ class FavAdapter(mFragment: Fragment,private val favList:ArrayList<FavoritesItem
                     (myFragment as FavoritesFragment).recyclerOlustur(favList)
 
                 }
-               // TODO("view'a info tuşu koy ki kullanıcı tıklayabildiğini anlasın")
             }
 
         }
@@ -65,7 +64,6 @@ class FavAdapter(mFragment: Fragment,private val favList:ArrayList<FavoritesItem
             holder.setData(createFoodLineNow,position)
 
             holder.itemView.setOnClickListener {
-                // TODO(geri dönüldüğünde aynı gıdadan recycler yüklenmesini hallet.)
                 val foodName=createFoodLineNow.itemName
                 val imageUri=createFoodLineNow.itemImage
                 val foodContent=createFoodLineNow.itemContent

@@ -1,5 +1,7 @@
 package com.example.fitnow.view
 
+import android.app.AlertDialog
+import android.content.DialogInterface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -9,7 +11,9 @@ import androidx.navigation.ui.NavigationUI.setupWithNavController
 import com.example.fitnow.R
 import com.example.fitnow.service.MainActivityListener
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.firebase.auth.FirebaseAuth
 import java.io.File
+import kotlin.system.exitProcess
 
 class MainActivity : AppCompatActivity() , MainActivityListener {
     private lateinit var navController: NavController
@@ -26,9 +30,20 @@ class MainActivity : AppCompatActivity() , MainActivityListener {
 
     }
 
+    @Deprecated("Deprecated in Java")
     override fun onBackPressed() {
         if(!isLoggedIn){
             super.onBackPressed()
+        }else{
+            val alert= AlertDialog.Builder(this)
+            alert.setTitle("Uygulamadan çıkmak istediğinizden emin misiniz?")
+                .setIcon(R.drawable.ic_logout)
+                .setPositiveButton("Evet", DialogInterface.OnClickListener{ dialog, which ->
+                    FirebaseAuth.getInstance().signOut()
+                    exitProcess(-1)
+                })
+                .setNegativeButton("Hayır", DialogInterface.OnClickListener { dialog, which -> dialog.cancel() })
+                .create().show()
         }
 
     }

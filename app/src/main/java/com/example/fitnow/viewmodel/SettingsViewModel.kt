@@ -84,15 +84,21 @@ class SettingsViewModel : ViewModel() {
 
     fun updateUser(newUser:SettingsModel,it:View) {
         loading.value=true
-        firebaseDatabase
-            .child("Users")
-            .child((FirebaseAuth.getInstance().currentUser?.uid).toString())
-            .child("extra")
-            .setValue(newUser).addOnCompleteListener {
-                if (it.isSuccessful) update.value=true
-                else errorMessage.value= "İşlem başarısız"
-                loading.value=false
-            }
+        if((newUser.height.toInt()<=0 || newUser.height.toInt()>300) || (newUser.age.toInt()<0||newUser.age.toInt()>150)){
+            errorMessage.value="Lütfen düzgün veri girişi yapınız"
+            loading.value=false
+        }else{
+            firebaseDatabase
+                .child("Users")
+                .child((FirebaseAuth.getInstance().currentUser?.uid).toString())
+                .child("extra")
+                .setValue(newUser).addOnCompleteListener {
+                    if (it.isSuccessful) update.value=true
+                    else errorMessage.value= "İşlem başarısız"
+                    loading.value=false
+                }
+        }
+
     }
     fun deleteAccount(){
         loading.value=true
