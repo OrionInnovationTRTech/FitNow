@@ -5,11 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.fitnow.R
 import com.example.fitnow.adapter.OnBoardingAdapter
 import com.example.fitnow.databinding.FragmentOnBoardingBinding
 import com.example.fitnow.view.onBoarding.screens.*
-import com.example.fitnow.view.onBoarding.*
 
 class OnBoardingFragment : Fragment() {
     private var _binding: FragmentOnBoardingBinding? = null

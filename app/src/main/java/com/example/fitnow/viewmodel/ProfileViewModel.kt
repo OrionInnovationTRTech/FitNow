@@ -2,7 +2,6 @@ package com.example.fitnow.viewmodel
 
 import android.app.ProgressDialog
 import android.content.Context
-import android.graphics.Bitmap
 import android.net.Uri
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

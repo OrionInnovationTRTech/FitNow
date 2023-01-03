@@ -8,6 +8,11 @@
         android:id="@+id/menuHesapAyarlari"
         android:icon="@drawable/ic_settings"
         android:title="@string/mainMenuGoAccSettings"/>
+
+        <item
+            android:id="@+id/extraSettings"
+            android:icon="@drawable/ic_account"
+            android:title="@string/extraSettings"/>
     <item
         android:id="@+id/emailOnayla"
         android:icon="@drawable/ic_verified_email"

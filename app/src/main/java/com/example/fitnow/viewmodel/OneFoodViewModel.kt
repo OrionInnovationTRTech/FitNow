@@ -2,13 +2,12 @@ package com.example.fitnow.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.fitnow.data.entity.MealData
-import com.example.fitnow.model.IMAGE_APPLE
+import com.example.fitnow.model.OneFoodItem
 
 class OneFoodViewModel:ViewModel() {
-    val foodLiveData=MutableLiveData<MealData.Results>()
+    val foodLiveData=MutableLiveData<OneFoodItem>()
 
-    fun getData(foodDetails:MealData.Results){
+    fun getData(foodDetails:OneFoodItem){
         foodLiveData.value=foodDetails
     }
 }

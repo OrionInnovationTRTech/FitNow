@@ -2,7 +2,6 @@ package com.example.fitnow.viewmodel
 
 
 import android.view.View
-import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.fitnow.model.SettingsModel
@@ -27,7 +26,6 @@ class SettingsViewModel : ViewModel() {
 
 
     fun fillDatas() {
-        // TODO(Kadın seçiliyken her girişte güncelleme başarılı vs yazıyor ona göz at)
         loading.value = true
         val query = firebaseDatabase.child("Users")
             .orderByKey()

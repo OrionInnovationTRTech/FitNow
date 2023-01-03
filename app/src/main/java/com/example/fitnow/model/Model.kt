@@ -1,5 +1,7 @@
 package com.example.fitnow.model
 
+import android.text.Spanned
+
 
 data class SignIn(val userEmail:String, val userPassword:String)
 data class SignUp(val nameSurname:String,
@@ -29,4 +31,8 @@ data class FavoritesItem(
     val itemImage: String,
     val itemContent:String)
 
-data class DrawerModel(val userImage:String, val userName:String)
+data class OneFoodItem(
+    val itemId: String,
+    val itemName: String,
+    val itemImage: String,
+    val parseContent:Spanned)

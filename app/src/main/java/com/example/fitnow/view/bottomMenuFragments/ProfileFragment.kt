@@ -20,7 +20,6 @@ import com.example.fitnow.service.MainActivityListener
 import com.example.fitnow.service.getImage
 import com.example.fitnow.service.progressDrawable
 import com.example.fitnow.viewmodel.ProfileViewModel
-import com.squareup.picasso.Picasso
 import com.yalantis.ucrop.UCrop
 
 class ProfileFragment : Fragment() {

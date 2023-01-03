@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import androidx.lifecycle.get
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.fitnow.R
 import com.example.fitnow.adapter.FoodAdapter
@@ -23,7 +22,6 @@ class FoodFragment : Fragment() {
     private lateinit var viewModel:FoodViewModel
     private val foodAdapter= FoodAdapter(arrayListOf())
     var myLayoutManager:LinearLayoutManager?=null
-    //TODO(JSoup html parse edici)
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

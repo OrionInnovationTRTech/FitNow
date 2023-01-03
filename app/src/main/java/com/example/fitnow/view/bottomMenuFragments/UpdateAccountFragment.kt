@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import androidx.navigation.Navigation
 import com.example.fitnow.R
 import com.example.fitnow.databinding.FragmentUpdateAccountBinding
 import com.example.fitnow.viewmodel.UpdateAccountViewModel

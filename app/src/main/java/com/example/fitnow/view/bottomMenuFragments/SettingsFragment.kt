@@ -16,11 +16,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.fitnow.R
 import com.example.fitnow.databinding.FragmentSettingsBinding
-import com.example.fitnow.databinding.SlideHeaderBinding
-import com.example.fitnow.model.IMAGE_APPLE
 import com.example.fitnow.model.SettingsModel
-import com.example.fitnow.service.getImage
-import com.example.fitnow.service.progressDrawable
 import com.example.fitnow.viewmodel.SettingsViewModel
 import com.google.firebase.auth.FirebaseAuth
 import kotlin.system.exitProcess
@@ -31,7 +27,7 @@ class SettingsFragment : Fragment() {
     lateinit var viewModel:SettingsViewModel
     private var userGender="Erkek"
 
-    //TODO(fragment açıldığında drawer clicked itemleri sıfırla)
+
     //TODO(Drawer kullanıc bilgilerini yap ------------                                             -> Olmuyor)
 
     override fun onCreateView(
@@ -46,6 +42,7 @@ class SettingsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.navigationView.setCheckedItem(R.id.extraSettings)
         viewModel.fillDatas()
         observeLiveData()
         // TODO(KLAVYE AÇILINCA SCROLL OLAYINA ÇÖZÜM BUL -----------------> Olmuyor)
@@ -131,12 +128,18 @@ class SettingsFragment : Fragment() {
             binding.drawerLayout.openDrawer(GravityCompat.END)
         }
         binding.navigationView.setNavigationItemSelectedListener {
+            // TODO("EMAİL onay yollandığında butonu deaktif et yapılıyosa.")
             it.isChecked=true
             when(it.itemId){
                 R.id.menuHesapAyarlari -> {
                     binding.drawerLayout.closeDrawer(GravityCompat.END)
                     binding.settingFragmentContainer.visibility=View.GONE
                     replaceFragment(UpdateAccountFragment())
+                }
+                R.id.extraSettings -> {
+                    binding.drawerLayout.closeDrawer(GravityCompat.END)
+                    binding.navigationFragmentContainer.visibility=View.GONE
+                    binding.settingFragmentContainer.visibility=View.VISIBLE
                 }
                 R.id.emailOnayla -> verifiedEmail(it)
                 R.id.deleteAccount -> deleteAcc()
@@ -178,6 +181,7 @@ class SettingsFragment : Fragment() {
 
     private fun verifiedEmail(view: MenuItem) {
         viewModel.verifiedEmail()
+        view.isEnabled=false
         view.isChecked=false
 
     }

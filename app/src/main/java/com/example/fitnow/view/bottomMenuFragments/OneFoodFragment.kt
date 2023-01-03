@@ -1,6 +1,7 @@
 package com.example.fitnow.view.bottomMenuFragments
 
 import android.os.Bundle
+import android.text.Html
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -8,9 +9,8 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.Navigation
-import com.example.fitnow.R
-import com.example.fitnow.data.entity.MealData
 import com.example.fitnow.databinding.FragmentOneFoodBinding
+import com.example.fitnow.model.OneFoodItem
 import com.example.fitnow.viewmodel.OneFoodViewModel
 import com.squareup.picasso.Picasso
 
@@ -33,12 +33,13 @@ class OneFoodFragment : Fragment() {
         viewModel=ViewModelProviders.of(this)[OneFoodViewModel::class.java]
         var whereToGo=true
         arguments?.let {
-            val foodInformation=MealData.Results()
-            foodInformation.mId=OneFoodFragmentArgs.fromBundle(it).mId
-            foodInformation.resultName=OneFoodFragmentArgs.fromBundle(it).foodName
-            foodInformation.image=OneFoodFragmentArgs.fromBundle(it).imageURL
-            foodInformation.content=OneFoodFragmentArgs.fromBundle(it).foodContent
+
+            val foodId=OneFoodFragmentArgs.fromBundle(it).mId
+            val foodName=OneFoodFragmentArgs.fromBundle(it).foodName
+            val foodImage=OneFoodFragmentArgs.fromBundle(it).imageURL
+            val foodContent=Html.fromHtml(OneFoodFragmentArgs.fromBundle(it).foodContent)
             whereToGo=OneFoodFragmentArgs.fromBundle(it).fromWhere
+            val foodInformation=OneFoodItem(foodId.toString(),foodName,foodImage,foodContent)
             viewModel.getData(foodInformation)
         }
         observeLiveData(view)
@@ -60,9 +61,9 @@ class OneFoodFragment : Fragment() {
     private fun observeLiveData(view: View) {
         viewModel.foodLiveData.observe(viewLifecycleOwner, Observer {   oneFood ->
             oneFood?.let {
-                binding.foodNameText.text=it.resultName.toString()
-                binding.foodContentText.text=it.content.toString()
-                Picasso.get().load(it.image.toString()).into(binding.foodImage)
+                binding.foodNameText.text=it.itemName
+                binding.foodContentText.text = it.parseContent
+                Picasso.get().load(it.itemImage).into(binding.foodImage)
             }
         })
     }

@@ -9,12 +9,10 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.fitnow.FavAdapter
-import com.example.fitnow.R
 import com.example.fitnow.databinding.FragmentFavoritesBinding
 import com.example.fitnow.model.FavoritesItem
 import com.example.fitnow.viewmodel.FavoritesViewModel
 import kotlinx.android.synthetic.main.fragment_favorites.*
-import kotlinx.android.synthetic.main.fragment_profile.*
 
 class FavoritesFragment : Fragment() {
     private var _binding:FragmentFavoritesBinding?=null
