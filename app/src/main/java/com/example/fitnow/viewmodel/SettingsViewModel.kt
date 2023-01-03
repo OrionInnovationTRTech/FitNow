@@ -1,7 +1,6 @@
 package com.example.fitnow.viewmodel
 
 
-import android.view.View
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.fitnow.model.SettingsModel
@@ -10,6 +9,7 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import com.google.firebase.storage.FirebaseStorage
 import kotlin.system.exitProcess
 
 class SettingsViewModel : ViewModel() {
@@ -19,11 +19,11 @@ class SettingsViewModel : ViewModel() {
     val errorMessage=MutableLiveData<String>()
     val spinnerList= MutableLiveData<List<String>>()
     val exercise=MutableLiveData<String>()
-    val update=MutableLiveData<Boolean>()
+    val update=MutableLiveData<String>()
 
     private val firebaseAuth = FirebaseAuth.getInstance().currentUser
     private val firebaseDatabase = FirebaseDatabase.getInstance().reference
-
+    private val firebaseStorage = FirebaseStorage.getInstance().reference
 
     fun fillDatas() {
         loading.value = true
@@ -80,9 +80,9 @@ class SettingsViewModel : ViewModel() {
         }
     }
 
-    fun updateUser(newUser:SettingsModel,it:View) {
+    fun updateUser(newUser:SettingsModel) {
         loading.value=true
-        if((newUser.height.toInt()<=0 || newUser.height.toInt()>300) || (newUser.age.toInt()<0||newUser.age.toInt()>150)){
+        if((newUser.height.toInt()<=0 || newUser.height.toInt()>300) || (newUser.age.toInt()<0||newUser.age.toInt()>150) || (newUser.weight.toInt()>600)){
             errorMessage.value="Lütfen düzgün veri girişi yapınız"
             loading.value=false
         }else{
@@ -91,7 +91,7 @@ class SettingsViewModel : ViewModel() {
                 .child((FirebaseAuth.getInstance().currentUser?.uid).toString())
                 .child("extra")
                 .setValue(newUser).addOnCompleteListener {
-                    if (it.isSuccessful) update.value=true
+                    if (it.isSuccessful) update.value="true"
                     else errorMessage.value= "İşlem başarısız"
                     loading.value=false
                 }
@@ -100,10 +100,20 @@ class SettingsViewModel : ViewModel() {
     }
     fun deleteAccount(){
         loading.value=true
-
          firebaseDatabase.child("Users")
             .child(firebaseAuth?.uid.toString())
              .removeValue()
+             .addOnCompleteListener {
+                 println("Database silindi="+it.isSuccessful)
+             }
+        val storageRef="${firebaseAuth?.uid.toString()}/images/profilepicture.jpg"
+        FirebaseStorage.getInstance().reference
+            .child(storageRef)
+            .delete()
+            .addOnCompleteListener {
+                    println("Storage silindi="+it.isSuccessful)
+            }
+
         firebaseAuth?.delete()?.addOnCompleteListener {
             if (it.isSuccessful) {
                 errorMessage.value="Silme işlemi başarılı"
@@ -130,6 +140,5 @@ class SettingsViewModel : ViewModel() {
             } else {
                 emailSituation.value = "Lütfen giriş yapıp tekrar deneyin"
             }
-        // TODO("getStringleri düzenle verifiedEmail Fonksiyonu içerisi")
     }
 }

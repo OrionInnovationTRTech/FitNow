@@ -19,7 +19,6 @@ class UpdateAccountFragment : Fragment() {
     lateinit var viewModel:UpdateAccountViewModel
     lateinit var job: String
 
-    //TODO("kullanıcı adı isim soyisim gibi bilgileri de güncellet")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

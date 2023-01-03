@@ -20,7 +20,9 @@ import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.onefoodlayout.view.*
 
 
-class FoodAdapter(private val foodList: ArrayList<MealData.Results>): RecyclerView.Adapter<FoodAdapter.FoodViewHolder>() {
+class FoodAdapter(private val foodList: ArrayList<MealData.Results>):
+    RecyclerView.Adapter<FoodAdapter.FoodViewHolder>() {
+
     val database = FirebaseDatabase.getInstance().reference
 
     inner class FoodViewHolder(var view:View): RecyclerView.ViewHolder(view) {

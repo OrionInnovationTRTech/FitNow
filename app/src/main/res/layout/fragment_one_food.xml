@@ -2,24 +2,47 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/outConstraint"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.bottomMenuFragments.OneFoodFragment">
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/mainConstraint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:context=".view.bottomMenuFragments.OneFoodFragment">
 
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:id="@+id/mainConstraint"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".view.bottomMenuFragments.OneFoodFragment">
+
+
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/oneFoodGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="favCheck,foodImage,foodNameText,foodContentText" />
 
     <ImageView
         android:id="@+id/btnBack"
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:layout_margin="12dp"
+        android:src="@drawable/ic_slide_left"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/ic_slide_left"/>
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <CheckBox
+        android:id="@+id/favCheck"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:button="@drawable/wishlist_item"
+        app:layout_constraintTop_toBottomOf="@id/foodImage"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <ImageView
         android:id="@+id/foodImage"
@@ -61,5 +84,17 @@
 </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>
+        <ProgressBar
+            android:id="@+id/oneFoodProgressBar"
+            style="?android:attr/progressBarStyle"
+            android:indeterminateTint="@color/lavender_blue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

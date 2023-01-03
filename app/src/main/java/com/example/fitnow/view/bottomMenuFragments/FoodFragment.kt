@@ -92,7 +92,6 @@ class FoodFragment : Fragment() {
         viewModel.foodError.observe(viewLifecycleOwner, Observer {
             it?.let {
                 if (it){
-                    Toast.makeText(context, R.string.cantFoundFood, Toast.LENGTH_LONG).show()
                     binding.searchFailedTextView.visibility=View.VISIBLE
                     binding.recyclerviewFood.visibility=View.GONE
                 }else{

@@ -19,6 +19,9 @@ class OneFoodFragment : Fragment() {
     private val binding get()=_binding!!
     private lateinit var viewModel:OneFoodViewModel
 
+    private lateinit var foodContentOrj:String
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -32,12 +35,13 @@ class OneFoodFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         viewModel=ViewModelProviders.of(this)[OneFoodViewModel::class.java]
         var whereToGo=true
+        viewModel.loading.value=true
         arguments?.let {
-
             val foodId=OneFoodFragmentArgs.fromBundle(it).mId
             val foodName=OneFoodFragmentArgs.fromBundle(it).foodName
             val foodImage=OneFoodFragmentArgs.fromBundle(it).imageURL
-            val foodContent=Html.fromHtml(OneFoodFragmentArgs.fromBundle(it).foodContent)
+            foodContentOrj=OneFoodFragmentArgs.fromBundle(it).foodContent
+            val foodContent=Html.fromHtml(foodContentOrj)
             whereToGo=OneFoodFragmentArgs.fromBundle(it).fromWhere
             val foodInformation=OneFoodItem(foodId.toString(),foodName,foodImage,foodContent)
             viewModel.getData(foodInformation)
@@ -53,8 +57,9 @@ class OneFoodFragment : Fragment() {
             }
 
         }
-
-
+        binding.favCheck.setOnClickListener {
+            viewModel.deleteOrFavFood(binding.favCheck.isChecked,foodContentOrj)
+        }
 
     }
 
@@ -66,6 +71,24 @@ class OneFoodFragment : Fragment() {
                 Picasso.get().load(it.itemImage).into(binding.foodImage)
             }
         })
+        viewModel.loading.observe(viewLifecycleOwner, Observer { loading->
+            loading?.let {
+                if(it){
+                    binding.oneFoodGroup.visibility=View.GONE
+                    binding.oneFoodProgressBar.visibility=View.VISIBLE
+                }else{
+                    binding.oneFoodGroup.visibility=View.VISIBLE
+                    binding.oneFoodProgressBar.visibility=View.GONE
+                }
+            }
+        })
+        viewModel.response.observe(viewLifecycleOwner, Observer {fav->
+            fav?.let {
+                if(it=="Fav")   binding.favCheck.isChecked=true
+                else if(it=="NotFav") binding.favCheck.isChecked=false
+                viewModel.loading.value=false
+            }
+        } )
     }
 
 }

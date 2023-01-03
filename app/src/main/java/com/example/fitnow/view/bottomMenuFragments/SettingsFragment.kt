@@ -28,8 +28,6 @@ class SettingsFragment : Fragment() {
     private var userGender="Erkek"
 
 
-    //TODO(Drawer kullanıc bilgilerini yap ------------                                             -> Olmuyor)
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -45,16 +43,14 @@ class SettingsFragment : Fragment() {
         binding.navigationView.setCheckedItem(R.id.extraSettings)
         viewModel.fillDatas()
         observeLiveData()
-        // TODO(KLAVYE AÇILINCA SCROLL OLAYINA ÇÖZÜM BUL -----------------> Olmuyor)
+
     }
     private fun observeLiveData() {
         viewModel.emailSituation.observe(viewLifecycleOwner, Observer {response->
             response?.let {
-                Toast.makeText(context,it,Toast.LENGTH_LONG).show()
+                if(it!="")  Toast.makeText(context,it,Toast.LENGTH_LONG).show()
             }
         })
-
-
 
         viewModel.userDetails.observe(viewLifecycleOwner, Observer { user->
             user?.let {
@@ -102,15 +98,13 @@ class SettingsFragment : Fragment() {
 
         viewModel.update.observe(viewLifecycleOwner, Observer { update->
             update?.let {
-                if (it) Toast.makeText(context,R.string.updateSuccess,Toast.LENGTH_LONG).show()
-                else Toast.makeText(context,R.string.updateFailed,Toast.LENGTH_LONG).show()
-
+                if (it=="true") Toast.makeText(context,R.string.updateSuccess,Toast.LENGTH_LONG).show()
             }
         })
 
         viewModel.errorMessage.observe(viewLifecycleOwner, Observer { error->
             error?.let {
-                Toast.makeText(context,it,Toast.LENGTH_LONG).show()
+                if(it!="") Toast.makeText(context,it,Toast.LENGTH_LONG).show()
             }
         })
 
@@ -123,12 +117,12 @@ class SettingsFragment : Fragment() {
 
 
     private fun initializeUI() {
+        setNullValue()
         binding.navigationFragmentContainer.visibility=View.GONE
         binding.slideImage.setOnClickListener {
             binding.drawerLayout.openDrawer(GravityCompat.END)
         }
         binding.navigationView.setNavigationItemSelectedListener {
-            // TODO("EMAİL onay yollandığında butonu deaktif et yapılıyosa.")
             it.isChecked=true
             when(it.itemId){
                 R.id.menuHesapAyarlari -> {
@@ -141,7 +135,11 @@ class SettingsFragment : Fragment() {
                     binding.navigationFragmentContainer.visibility=View.GONE
                     binding.settingFragmentContainer.visibility=View.VISIBLE
                 }
-                R.id.emailOnayla -> verifiedEmail(it)
+                R.id.emailOnayla -> {
+                    it.isChecked=false
+                    it.isEnabled=false
+                    verifiedEmail()
+                }
                 R.id.deleteAccount -> deleteAcc()
                 R.id.menuCikisYap -> {
                     it.isChecked=false
@@ -162,9 +160,15 @@ class SettingsFragment : Fragment() {
             val userJob=binding.uiJob.text.toString()
             val userExercise=viewModel.exercise.value.toString()
             if(userAge!="" && userJob !="" && userHeight!="" && userWeight !="")
-                viewModel.updateUser(SettingsModel(userHeight,userWeight,userAge,userJob,userExercise,userGender),it)
+                viewModel.updateUser(SettingsModel(userHeight,userWeight,userAge,userJob,userExercise,userGender))
             else viewModel.errorMessage.value= getString(R.string.fill)
         }
+    }
+
+    private fun setNullValue() {
+        viewModel.emailSituation.value=""
+        viewModel.update.value=""
+        viewModel.errorMessage.value=""
     }
 
     private fun deleteAcc() {
@@ -179,11 +183,8 @@ class SettingsFragment : Fragment() {
     }
 
 
-    private fun verifiedEmail(view: MenuItem) {
+    private fun verifiedEmail() {
         viewModel.verifiedEmail()
-        view.isEnabled=false
-        view.isChecked=false
-
     }
 
     private fun logout() {

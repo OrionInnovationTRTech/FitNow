@@ -73,6 +73,17 @@
                     app:constraint_referenced_ids="ui_age,ui_job,ui_height,textView2,textView4,textView3,textView5,textView6,genderRadioGroup,btnSave,textView7,ui_weight,uispinner_exercise" />
 
                 <EditText
+                    android:id="@+id/ui_height"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:ems="10"
+                    android:hint="@string/heightHint"
+                    android:inputType="number"
+                    app:layout_constraintStart_toStartOf="@+id/ui_age"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
                     android:id="@+id/ui_age"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -81,7 +92,6 @@
                     android:ems="10"
                     android:hint="@string/ageHint"
                     android:inputType="number"
-
                     app:layout_constraintStart_toEndOf="@+id/textView2"
                     app:layout_constraintTop_toBottomOf="@+id/ui_height" />
 
@@ -95,16 +105,6 @@
                     app:layout_constraintStart_toStartOf="@+id/ui_weight"
                     app:layout_constraintTop_toBottomOf="@+id/ui_weight" />
 
-                <EditText
-                    android:id="@+id/ui_height"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp"
-                    android:ems="10"
-                    android:hint="@string/heightHint"
-                    android:inputType="number"
-                    app:layout_constraintStart_toStartOf="@+id/ui_age"
-                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/textView2"

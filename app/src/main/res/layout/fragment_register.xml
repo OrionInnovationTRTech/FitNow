@@ -52,6 +52,19 @@
                 app:layout_constraintTop_toBottomOf="@+id/registerPageWelcomeMessage" />
 
             <EditText
+                android:autofillHints="name"
+                android:id="@+id/registerUsername"
+                android:layout_width="228dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="8dp"
+                android:ems="10"
+                android:hint="@string/username"
+                android:inputType="textPersonName"
+                app:layout_constraintEnd_toEndOf="@+id/registerName"
+                app:layout_constraintStart_toStartOf="@+id/registerName"
+                app:layout_constraintTop_toBottomOf="@+id/registerName" />
+
+            <EditText
                 android:autofillHints="emailAddress"
                 android:id="@+id/registerEmail"
                 android:layout_width="228dp"
@@ -132,18 +145,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
 
-            <EditText
-                android:autofillHints="username"
-                android:id="@+id/registerUsername"
-                android:layout_width="228dp"
-                android:layout_height="48dp"
-                android:layout_marginTop="8dp"
-                android:ems="10"
-                android:hint="@string/username"
-                android:inputType="textPersonName"
-                app:layout_constraintEnd_toEndOf="@+id/registerName"
-                app:layout_constraintStart_toStartOf="@+id/registerName"
-                app:layout_constraintTop_toBottomOf="@+id/registerName" />
+
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

@@ -31,7 +31,7 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        // TODO(BENİ HATIRLA YAP)
+
         viewModel = ViewModelProviders.of(this)[LoginViewModel::class.java]
         observeLiveData(view)
 
