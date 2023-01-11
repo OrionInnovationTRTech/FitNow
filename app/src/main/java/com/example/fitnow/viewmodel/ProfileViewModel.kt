@@ -55,7 +55,6 @@ class ProfileViewModel:ViewModel() {
         })
     }
 
-
     fun uploadImage(path: Uri,context:Context){
             val imageRef =
                 FirebaseStorage.getInstance().reference.child("${firebaseAuth?.uid}/images/profilepicture.jpg")
@@ -68,13 +67,11 @@ class ProfileViewModel:ViewModel() {
                     imageRef.downloadUrl
                         .addOnCompleteListener {
                             val imageDatabaseURL = it.result.toString()
-                            println("Success, imageUrl= $imageDatabaseURL")
                             FirebaseDatabase.getInstance().reference
                                 .child("Users")
-                                .child((FirebaseAuth.getInstance().currentUser?.uid).toString())
+                                .child(firebaseAuth?.uid.toString())
                                 .child("imageURL")
                                 .setValue(imageDatabaseURL)
-                            getData()
                         }
                 }
                 .addOnFailureListener {
@@ -85,10 +82,5 @@ class ProfileViewModel:ViewModel() {
                     val progress = (100 * it.bytesTransferred) / it.totalByteCount
                     pd.setMessage("Uploaded: ${progress.toInt()}%")
                 }
-
     }
-
-
-
-
 }

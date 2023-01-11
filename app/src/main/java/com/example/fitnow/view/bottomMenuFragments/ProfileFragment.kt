@@ -5,13 +5,13 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
-import android.provider.MediaStore
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContract
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.content.ContextCompat
 import androidx.core.net.toUri
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -73,7 +73,6 @@ class ProfileFragment : Fragment() {
                 }else{
                     binding.profilescInfo.visibility=View.GONE
                 }
-
             }
         })
 
@@ -116,13 +115,18 @@ class ProfileFragment : Fragment() {
 
 
 
-
-
-//  AŞAĞISI PROFİL FOTOĞRAFI İÇİN İZİN İSTEME VE UPLOAD ETME İŞLEMLERİYLE İLGİLİ
+//  Below about for the uploadImage operations
 
     private fun selectImage() {
         activity?.let {
-            getContent.launch("image/*")
+            if (ContextCompat.checkSelfPermission(it.applicationContext, android.Manifest.permission.READ_EXTERNAL_STORAGE) !=
+                PackageManager.PERMISSION_GRANTED
+            ) {
+                requestPermissions(arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE), 1)
+            }
+            else getContent.launch("image/*")
+
+
         }
     }
 
@@ -168,9 +172,7 @@ class ProfileFragment : Fragment() {
                                             grantResults: IntArray) {
         if (requestCode == 1) {
             if (grantResults.size > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                val intentt =
-                    Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
-                startActivityForResult(intentt, 2)
+                getContent.launch("image/*")
             }
         }
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)

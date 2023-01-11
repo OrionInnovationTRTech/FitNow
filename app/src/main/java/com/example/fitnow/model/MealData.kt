@@ -4,15 +4,8 @@ import com.google.gson.annotations.SerializedName
 
 
 class MealData {
-
-    @SerializedName("query")
-    var query: String? = null
-    @SerializedName("limit")
-    var limit: Int? = null
     @SerializedName("searchResults")
     var searchResults: List<SearchResults>? = null
-
-
 
     class SearchResults {
         @SerializedName("name")

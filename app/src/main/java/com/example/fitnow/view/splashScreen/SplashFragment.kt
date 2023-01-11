@@ -12,7 +12,6 @@ import com.example.fitnow.R
 
 
 class SplashFragment : Fragment() {
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -21,19 +20,13 @@ class SplashFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_splash, container, false)
         Handler().postDelayed({
             if (onBoardingFinished()){
-
-                /* val action= SplashFragmentDirections.actionSplashFragmentToLoginFragment()
-                 Navigation.findNavController(view).navigate(action)*/
-                val action= SplashFragmentDirections.actionSplashFragmentToProfileFragment()
-                Navigation.findNavController(view).navigate(action)
-
+                 val action= SplashFragmentDirections.actionSplashFragmentToLoginFragment()
+                 Navigation.findNavController(view).navigate(action)
             }else{
                 val action= SplashFragmentDirections.actionSplashFragmentToOnBoardingFragment()
                 Navigation.findNavController(view).navigate(action)
             }
-
         },1500)
-
         return view
     }
 
@@ -41,5 +34,4 @@ class SplashFragment : Fragment() {
         val sharedPref = requireActivity().getSharedPreferences("onBoarding", Context.MODE_PRIVATE)
         return sharedPref.getBoolean("Finished",false)
     }
-
 }

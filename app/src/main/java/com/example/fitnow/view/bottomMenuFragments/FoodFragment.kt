@@ -13,8 +13,9 @@ import com.example.fitnow.R
 import com.example.fitnow.adapter.FoodAdapter
 import com.example.fitnow.databinding.FragmentFoodBinding
 import com.example.fitnow.model.*
+import com.example.fitnow.service.getImage
+import com.example.fitnow.service.progressDrawable
 import com.example.fitnow.viewmodel.FoodViewModel
-import com.squareup.picasso.Picasso
 
 class FoodFragment : Fragment() {
     private var _binding:FragmentFoodBinding?=null
@@ -35,7 +36,6 @@ class FoodFragment : Fragment() {
         binding.recyclerviewFood.layoutManager = myLayoutManager
         binding.recyclerviewFood.adapter= foodAdapter
         observeLiveData()
-
         initiliazeMenu()
 
         return binding.root
@@ -103,10 +103,11 @@ class FoodFragment : Fragment() {
     }
 
     private fun initiliazeMenu() {
-        Picasso.get().load(IMAGE_APPLE).into(binding.menuAppleImage)
-        Picasso.get().load(IMAGE_BANANA).into(binding.menuBananaImage)
-        Picasso.get().load(IMAGE_WATERMELON).into(binding.menuWatermelonImage)
-        Picasso.get().load(IMAGE_LEMON).into(binding.menuLemonImage)
+        val progressDrawable= progressDrawable(requireContext())
+        binding.menuAppleImage.getImage(IMAGE_APPLE, progressDrawable)
+        binding.menuBananaImage.getImage(IMAGE_BANANA,progressDrawable)
+        binding.menuWatermelonImage.getImage(IMAGE_WATERMELON,progressDrawable)
+        binding.menuLemonImage.getImage(IMAGE_LEMON,progressDrawable)
     }
 
 }

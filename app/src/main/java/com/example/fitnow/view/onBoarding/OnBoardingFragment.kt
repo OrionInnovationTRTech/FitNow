@@ -20,15 +20,12 @@ class OnBoardingFragment : Fragment() {
     ): View {
         _binding=FragmentOnBoardingBinding.inflate(inflater,container,false)
 
-        // Önce kaç tane fragment olduğunu bir dizide tutuyoruz.
-
         val fragmentList = arrayListOf<Fragment>(
             FirstScreen(),
             SecondScreen(),
             ThirdScreen()
         )
 
-        //Sonra listemizi Adapterimize yollayarak view ile adapter arası bağlantı kuruyoruz.
         val adapter = OnBoardingAdapter(
             fragmentList,
             requireActivity().supportFragmentManager,

@@ -1,6 +1,7 @@
 package com.example.fitnow.adapter
 
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,14 +10,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.fitnow.R
 import com.example.fitnow.data.entity.MealData
 import com.example.fitnow.model.FavoritesItem
+import com.example.fitnow.service.getImage
+import com.example.fitnow.service.progressDrawable
 import com.example.fitnow.view.bottomMenuFragments.FoodFragmentDirections
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-
-import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.onefoodlayout.view.*
 
 
@@ -32,7 +33,8 @@ class FoodAdapter(private val foodList: ArrayList<MealData.Results>):
         fun setData(createFoodLineNow: MealData.Results, position: Int) {
             checkFav(createFoodLineNow)
             foodName.text= createFoodLineNow.resultName
-            Picasso.get().load(createFoodLineNow.image).into(foodImage)
+            foodImage.getImage(createFoodLineNow.image!!, progressDrawable(view.context))
+
             favBtn.setOnClickListener {
                 if (favBtn.isChecked) {
                     val itemId=createFoodLineNow.mId.toString()
@@ -104,11 +106,11 @@ class FoodAdapter(private val foodList: ArrayList<MealData.Results>):
 
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     fun updateFoodList(newFoodList: List<MealData.Results>){
         foodList.clear()
         foodList.addAll(newFoodList)
         notifyDataSetChanged()
     }
-
 
 }

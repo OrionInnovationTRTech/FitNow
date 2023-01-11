@@ -102,5 +102,4 @@ class FavoritesFragment : Fragment() {
 
     }
 
-
 }

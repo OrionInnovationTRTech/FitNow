@@ -93,6 +93,13 @@ class UpdateAccountFragment : Fragment() {
         })
         viewModel.process.observe(viewLifecycleOwner, Observer { process->
             process?.let {
+                if(it=="İşlem Başarılı") {
+                    binding.passwordEditText.setText("")
+                    binding.newPassEditText.setText("")
+                    binding.newEmailEditText.setText("")
+                    if(job=="Email")
+                        binding.emailEditText.setText("")
+                }
                 binding.changePassConstraint.visibility=View.GONE
                 binding.changeEmailConstraint.visibility=View.GONE
                 binding.emailEditText.isEnabled=true
@@ -102,12 +109,17 @@ class UpdateAccountFragment : Fragment() {
         })
         viewModel.loading.observe(viewLifecycleOwner, Observer { loading->
             loading?.let {
+                binding.updateAccountGroup.isEnabled=!it
+                binding.changePassContstraintGroup.isEnabled=!it
+                binding.changeEmailConstraintGroup.isEnabled=!it
+                /*
                 binding.changeEmailBtn.isEnabled=!it
                 binding.changePassBtn.isEnabled=!it
                 binding.newEmailEditText.isEnabled=!it
                 binding.newPassEditText.isEnabled=!it
                 binding.changeNewEmailBtn.isEnabled=!it
                 binding.changeNewPassBtn.isEnabled=!it
+                */
             }
         })
         viewModel.showMain.observe(viewLifecycleOwner, Observer { value->

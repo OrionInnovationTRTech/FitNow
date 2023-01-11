@@ -8,12 +8,12 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.example.fitnow.model.FavoritesItem
+import com.example.fitnow.service.getImage
+import com.example.fitnow.service.progressDrawable
 import com.example.fitnow.view.bottomMenuFragments.FavoritesFragment
 import com.example.fitnow.view.bottomMenuFragments.FavoritesFragmentDirections
-import com.example.fitnow.view.bottomMenuFragments.FoodFragmentDirections
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
-import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.onefoodlayout.view.*
 
 
@@ -27,7 +27,7 @@ class FavAdapter(mFragment: Fragment,private val favList:ArrayList<FavoritesItem
             private var favBtn = itemView.favCheck
             fun setData(createFoodLineNow: FavoritesItem, position: Int) {
 
-                Picasso.get().load(createFoodLineNow.itemImage).into(foodImage)
+                foodImage.getImage(createFoodLineNow.itemImage, progressDrawable(itemView.context))
                 foodName.text=createFoodLineNow.itemName
                 favBtn.isChecked=true
                 favBtn.setOnClickListener {
@@ -38,7 +38,6 @@ class FavAdapter(mFragment: Fragment,private val favList:ArrayList<FavoritesItem
                             .child("Favorites")
                             .child(foodName.text.toString())
                             .removeValue()
-                    println("Silindi updateFavList Çağırılıyor")
                     (myFragment as FavoritesFragment).recyclerOlustur(favList)
 
                 }

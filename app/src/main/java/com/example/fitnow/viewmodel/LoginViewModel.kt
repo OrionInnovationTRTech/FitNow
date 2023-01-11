@@ -6,6 +6,7 @@ import com.example.fitnow.model.SignIn
 import com.google.firebase.auth.FirebaseAuth
 
 class LoginViewModel : ViewModel() {
+
     val loginErrorMessage = MutableLiveData<String>()
     val loginInProgress = MutableLiveData<Boolean>()
     val loginIsSuccess = MutableLiveData<Boolean>()
@@ -25,6 +26,5 @@ class LoginViewModel : ViewModel() {
                 loginInProgress.value=false
             }
     }
-
 
 }

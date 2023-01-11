@@ -35,7 +35,6 @@ class LoginFragment : Fragment() {
         viewModel = ViewModelProviders.of(this)[LoginViewModel::class.java]
         observeLiveData(view)
 
-
         binding.signUpTextView.setOnClickListener {
             val action= LoginFragmentDirections.actionLoginFragmentToRegisterFragment()
             Navigation.findNavController(view).navigate(action)
@@ -66,13 +65,11 @@ class LoginFragment : Fragment() {
                 }
             }
         })
-
         viewModel.loginErrorMessage.observe(viewLifecycleOwner, Observer { error ->
             error?.let {
                 Toast.makeText(context,error,Toast.LENGTH_LONG).show()
             }
         })
-
         viewModel.loginInProgress.observe(viewLifecycleOwner, Observer { loading ->
             loading?.let {
                 if(it) enableDisableComponents(false)

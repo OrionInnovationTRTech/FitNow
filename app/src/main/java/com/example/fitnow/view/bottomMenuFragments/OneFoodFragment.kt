@@ -11,8 +11,9 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.Navigation
 import com.example.fitnow.databinding.FragmentOneFoodBinding
 import com.example.fitnow.model.OneFoodItem
+import com.example.fitnow.service.getImage
+import com.example.fitnow.service.progressDrawable
 import com.example.fitnow.viewmodel.OneFoodViewModel
-import com.squareup.picasso.Picasso
 
 class OneFoodFragment : Fragment() {
     private var _binding:FragmentOneFoodBinding? = null
@@ -68,7 +69,7 @@ class OneFoodFragment : Fragment() {
             oneFood?.let {
                 binding.foodNameText.text=it.itemName
                 binding.foodContentText.text = it.parseContent
-                Picasso.get().load(it.itemImage).into(binding.foodImage)
+                binding.foodImage.getImage(it.itemImage, progressDrawable(requireContext()))
             }
         })
         viewModel.loading.observe(viewLifecycleOwner, Observer { loading->

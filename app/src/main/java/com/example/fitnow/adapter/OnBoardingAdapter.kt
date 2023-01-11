@@ -8,9 +8,6 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 class OnBoardingAdapter(list : ArrayList<Fragment>, fm: FragmentManager, lifecycle: Lifecycle) :
     FragmentStateAdapter(fm,lifecycle) {
 
-    // Burada Fragment manager yardımı ile FragmentStateAdapterin gerekli implementation ları kullanarak
-    // işlemleri yaptırıyoruz.
-
     private val fragmentList = list
 
     override fun getItemCount(): Int {

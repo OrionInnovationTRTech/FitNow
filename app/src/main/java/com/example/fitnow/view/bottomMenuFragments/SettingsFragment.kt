@@ -5,7 +5,6 @@ import android.content.DialogInterface
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
-import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
@@ -117,7 +116,7 @@ class SettingsFragment : Fragment() {
 
 
     private fun initializeUI() {
-        setNullValue()
+        setNullValue() // For fresh start
         binding.navigationFragmentContainer.visibility=View.GONE
         binding.slideImage.setOnClickListener {
             binding.drawerLayout.openDrawer(GravityCompat.END)
