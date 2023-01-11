@@ -18,7 +18,7 @@ It is basically based on dietary applications. Since there is free API support, 
 - And other technologies in Android Jetpack library were tried to be added.
 
 ### Some Frames From the Application.
-![FitNow](https://user-images.githubusercontent.com/100079283/211788976-dfd70972-1722-4ac0-9501-01576ab7c223.gif)
+<img src="https://user-images.githubusercontent.com/100079283/211789467-f1e3e83a-f963-4213-a82e-740aaf550860.gif" width="300px" height="600px">
 
 
 ### **_TR_**
